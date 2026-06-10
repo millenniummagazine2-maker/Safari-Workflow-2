@@ -16,7 +16,7 @@
   --red-bg:#fcebeb;--red-text:#791f1f;--red-border:#a32d2d;
   --teal-bg:#e1f5ee;--teal-text:#085041;--teal-border:#0f6e56;
   --purple-bg:#eeedfe;--purple-text:#3c3489;--purple-border:#534ab7;
-  --radius:8px;--radius-lg:12px;
+  --radius:8px;--radius-lg:12px;--gold:#c8893a;--forest:#1a3a2a;
 }
 @media(prefers-color-scheme:dark){:root{
   --bg:#1c1c1a;--bg2:#252523;--bg3:#2e2e2b;
@@ -38,12 +38,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nav-section{font-size:9px;color:var(--text3);padding:14px 14px 4px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 .nav-item{display:flex;align-items:center;gap:9px;padding:8px 14px;font-size:12.5px;color:var(--text2);cursor:pointer;border-left:2px solid transparent;user-select:none;transition:background .1s}
 .nav-item:hover{background:var(--bg3);color:var(--text)}
-.nav-item.active{background:var(--bg);color:var(--text);border-left-color:#c8893a;font-weight:600}
+.nav-item.active{background:var(--bg);color:var(--text);border-left-color:var(--gold);font-weight:600}
 .nav-item svg{width:15px;height:15px;opacity:.65;flex-shrink:0}
 .nav-item.active svg{opacity:1}
 .nav-badge{margin-left:auto;background:var(--red-bg);color:var(--red-text);font-size:10px;padding:1px 6px;border-radius:10px;font-weight:700}
 .user-footer{padding:12px 14px;border-top:0.5px solid var(--border);margin-top:auto;display:flex;align-items:center;gap:9px}
-.avatar{width:30px;height:30px;border-radius:50%;background:#c8893a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:52px;border-bottom:0.5px solid var(--border);flex-shrink:0}
 .topbar h2{font-size:15px;font-weight:700}
@@ -51,12 +51,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .content{flex:1;overflow-y:auto;padding:20px 22px;background:var(--bg3)}
 .btn{display:inline-flex;align-items:center;gap:5px;padding:6px 13px;font-size:12px;border:0.5px solid var(--border2);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer;font-family:inherit;transition:background .1s;white-space:nowrap}
 .btn:hover{background:var(--bg2)}
-.btn.primary{background:#c8893a;border-color:#a06a22;color:#fff}
+.btn.primary{background:var(--gold);border-color:#a06a22;color:#fff}
 .btn.primary:hover{background:#b07830}
 .btn.success{background:var(--green-bg);border-color:var(--green-border);color:var(--green-text)}
 .btn.danger{background:var(--red-bg);border-color:var(--red-border);color:var(--red-text)}
 .btn.info{background:var(--blue-bg);border-color:var(--blue-border);color:var(--blue-text)}
-.btn:disabled{opacity:.4;cursor:not-allowed}
 .card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:16px}
 .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
@@ -65,8 +64,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .metric label{font-size:11px;color:var(--text3);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
 .metric .val{font-size:22px;font-weight:700}
 .metric .sub{font-size:11px;color:var(--text3);margin-top:3px}
-.metric .sub.up{color:var(--green-text)}
-.metric .sub.down{color:var(--red-text)}
+.metric .sub.up{color:var(--green-text)} .metric .sub.down{color:var(--red-text)}
 .tbl{width:100%;border-collapse:collapse;font-size:12.5px}
 .tbl th{text-align:left;padding:7px 10px;color:var(--text3);font-weight:600;border-bottom:0.5px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
 .tbl td{padding:8px 10px;border-bottom:0.5px solid var(--border);color:var(--text);vertical-align:middle}
@@ -81,84 +79,90 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .badge.lost,.badge.cancelled,.badge.inactive{background:var(--red-bg);color:var(--red-text)}
 .badge.pending{background:var(--amber-bg);color:var(--amber-text)}
 .badge.intransit{background:var(--blue-bg);color:var(--blue-text)}
-.badge.review{background:var(--purple-bg);color:var(--purple-text)}
 .badge.draft{background:var(--bg2);color:var(--text2)}
 .form-group{margin-bottom:12px}
 .form-group label{display:block;font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
 input[type=text],input[type=email],input[type=date],input[type=number],input[type=tel],select,textarea{width:100%;padding:8px 10px;font-size:13px;border:0.5px solid var(--border2);border-radius:var(--radius);background:var(--bg);color:var(--text);font-family:inherit}
-input:focus,select:focus,textarea:focus{outline:2px solid #c8893a;outline-offset:-1px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:-1px}
 textarea{resize:vertical;min-height:60px}
 .r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.r4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
 .alert{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:var(--radius);font-size:12.5px;margin-bottom:12px;border:0.5px solid}
 .alert.warn{background:var(--amber-bg);color:var(--amber-text);border-color:var(--amber-border)}
 .alert.info{background:var(--blue-bg);color:var(--blue-text);border-color:var(--blue-border)}
 .alert.success{background:var(--green-bg);color:var(--green-text);border-color:var(--green-border)}
-.alert.error{background:var(--red-bg);color:var(--red-text);border-color:var(--red-border)}
 .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.section-header h3{font-size:13px;font-weight:700;color:var(--text)}
+.section-header h3{font-size:13px;font-weight:700}
 .pipeline{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
 .pipe-col{min-width:155px;flex:1}
 .pipe-col-header{font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
-.pipe-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px;margin-bottom:8px;cursor:pointer;transition:border-color .1s}
-.pipe-card:hover{border-color:#c8893a}
+.pipe-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px;margin-bottom:8px;transition:border-color .1s}
+.pipe-card:hover{border-color:var(--gold)}
 .timeline{padding-left:18px}
 .tl-item{position:relative;padding:0 0 14px 14px;border-left:0.5px solid var(--border2)}
 .tl-item:last-child{border-left-color:transparent;padding-bottom:0}
-.tl-dot{position:absolute;left:-5px;top:3px;width:9px;height:9px;border-radius:50%;border:1.5px solid #c8893a;background:var(--amber-bg)}
+.tl-dot{position:absolute;left:-5px;top:3px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--gold);background:var(--amber-bg)}
 .tl-dot.done{border-color:var(--green-border);background:var(--green-bg)}
 .progress-bar{height:6px;background:var(--bg2);border-radius:3px;overflow:hidden}
-.progress-fill{height:100%;border-radius:3px;background:#c8893a;transition:width .3s}
+.progress-fill{height:100%;border-radius:3px;background:var(--gold);transition:width .3s}
 .chart-wrap{display:flex;align-items:flex-end;gap:5px;height:70px;margin-top:8px}
-.chart-bar{flex:1;border-radius:3px 3px 0 0;min-width:12px;display:flex;flex-direction:column;align-items:center;gap:3px}
-.chart-bar .bar{width:100%;border-radius:3px 3px 0 0;background:#c8893a;opacity:.75}
+.chart-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.chart-bar .bar{width:100%;border-radius:3px 3px 0 0;background:var(--gold);opacity:.75}
 .chart-bar .bar.green{background:var(--green-border)}
 .chart-bar span{font-size:9px;color:var(--text3)}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
-.modal{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:24px;width:100%;max-width:580px;max-height:92vh;overflow-y:auto}
+.modal{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:24px;width:100%;max-width:620px;max-height:92vh;overflow-y:auto}
 .modal h3{font-size:15px;font-weight:700;margin-bottom:16px}
 .modal-footer{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:12px;border-top:0.5px solid var(--border)}
 .setup-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:var(--bg3)}
 .setup-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:32px;width:100%;max-width:520px}
-.setup-card h1{font-size:20px;font-weight:700;margin-bottom:6px}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font-size:11px;font-weight:700;flex-shrink:0}
 .step-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px;font-size:13px;color:var(--text2)}
-.step-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#c8893a;color:#fff;font-size:11px;font-weight:700;flex-shrink:0}
 .divider{height:0.5px;background:var(--border);margin:16px 0}
-#toast{position:fixed;bottom:20px;right:20px;background:var(--text);color:var(--bg);padding:10px 16px;border-radius:var(--radius);font-size:13px;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none;max-width:300px}
+#toast{position:fixed;bottom:20px;right:20px;background:var(--text);color:var(--bg);padding:10px 16px;border-radius:var(--radius);font-size:13px;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none;max-width:320px}
 #toast.show{opacity:1}
-.stars{color:#c8893a;font-size:13px}
-.tab-bar{display:flex;gap:0;border-bottom:0.5px solid var(--border);margin-bottom:16px}
-.tab{padding:8px 16px;font-size:12px;cursor:pointer;color:var(--text3);border-bottom:2px solid transparent;margin-bottom:-0.5px;font-weight:500;transition:color .1s}
-.tab.active{color:var(--text);border-bottom-color:#c8893a}
-.sup-category{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.stars{color:var(--gold);font-size:13px}
+.sup-cat{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
 .sup-lodge{background:#FEF3E2;color:#92400e}
 .sup-park{background:#DCFCE7;color:#166534}
 .sup-airline{background:#EFF6FF;color:#1e40af}
 .sup-transport{background:#F5F3FF;color:#5b21b6}
 .sup-activity{background:#FFF0F6;color:#9d174d}
 .sup-other{background:var(--bg2);color:var(--text2)}
+/* Currency toggle */
+.cur-toggle{display:flex;gap:0;border:1.5px solid var(--gold);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
+.cur-opt{flex:1;padding:9px 12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;transition:background .15s;border:none;background:transparent;color:var(--text2)}
+.cur-opt.active{background:var(--gold);color:#fff}
+.inv-section{border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;background:var(--bg2)}
+.inv-section-title{font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)}
+.inv-result{font-size:12px;font-weight:600;color:var(--green-text);margin-top:5px;min-height:16px}
+.summary-box{background:var(--forest);color:#fff;border-radius:var(--radius);padding:14px 16px;margin-bottom:16px;display:none}
+.sum-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid rgba(255,255,255,.1);font-size:13px}
+.sum-total{display:flex;justify-content:space-between;padding:10px 0 3px;font-weight:700;font-size:15px}
 </style>
 </head>
 <body>
 <div id="toast"></div>
 
-<!-- SETUP -->
+<!-- SETUP SCREEN -->
 <div id="setup-screen" class="setup-screen" style="display:none">
   <div class="setup-card">
-    <h1>🦁 Safari Workflow</h1>
-    <p style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.6">Connect your Supabase database to get started. This only takes a minute and is done once.</p>
-    <div class="step-row"><span class="step-num">1</span><span>Go to <strong>supabase.com</strong>, create a project named <code style="background:var(--bg2);padding:1px 5px;border-radius:3px;font-size:12px">safari-workflow</code></span></div>
-    <div class="step-row"><span class="step-num">2</span><span>Go to <strong>SQL Editor</strong>, paste and run the <code style="background:var(--bg2);padding:1px 5px;border-radius:3px;font-size:12px">schema.sql</code> file</span></div>
-    <div class="step-row"><span class="step-num">3</span><span>Go to <strong>Project Settings → API</strong>, copy your Project URL and anon key</span></div>
+    <div style="font-size:26px;margin-bottom:8px">🦁</div>
+    <h1 style="font-size:20px;font-weight:700;margin-bottom:6px">Safari Workflow</h1>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.6">Connect your Supabase database to get started. Done once — works forever.</p>
+    <div class="step-row"><span class="step-num">1</span><span>Go to <strong>supabase.com</strong> → New project → name it <code style="background:var(--bg2);padding:1px 5px;border-radius:3px;font-size:12px">safari-workflow</code></span></div>
+    <div class="step-row"><span class="step-num">2</span><span>SQL Editor → paste and run <code style="background:var(--bg2);padding:1px 5px;border-radius:3px;font-size:12px">schema.sql</code></span></div>
+    <div class="step-row"><span class="step-num">3</span><span>Project Settings → API → copy Project URL and anon key</span></div>
     <div class="divider"></div>
     <div class="form-group"><label>Supabase Project URL</label><input type="text" id="setup-url" placeholder="https://xxxxxxxxxx.supabase.co"/></div>
     <div class="form-group"><label>Supabase Anon (Publishable) Key</label><input type="text" id="setup-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."/></div>
-    <button class="btn primary" style="width:100%;justify-content:center;padding:10px;font-size:13px" onclick="connectSupabase()">Connect & Launch →</button>
-    <p style="margin-top:10px;font-size:11px;color:var(--text3)">Credentials saved in your browser only — never shared.</p>
+    <button class="btn primary" style="width:100%;justify-content:center;padding:10px;font-size:14px" onclick="connectSupabase()">Connect & Launch →</button>
+    <p style="margin-top:10px;font-size:11px;color:var(--text3)">Credentials saved in your browser only.</p>
   </div>
 </div>
 
-<!-- APP -->
+<!-- MAIN APP -->
 <div class="app" id="app" style="display:none">
   <div class="sidebar">
     <div class="sidebar-logo">
@@ -167,27 +171,18 @@ textarea{resize:vertical;min-height:60px}
     </div>
     <div style="flex:1;overflow-y:auto;padding:6px 0">
       <div class="nav-section">Overview</div>
-      <div class="nav-item active" id="nav-dashboard" onclick="nav('dashboard')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</div>
+      <div class="nav-item active" id="nav-dashboard" onclick="nav('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</div>
       <div class="nav-section">Sales</div>
-      <div class="nav-item" id="nav-leads" onclick="nav('leads')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.87"/></svg>Leads<span class="nav-badge" id="badge-leads">0</span></div>
-      <div class="nav-item" id="nav-bookings" onclick="nav('bookings')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Bookings</div>
-      <div class="nav-item" id="nav-itinerary" onclick="nav('itinerary')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 20l-5-5 5-5M4 15h12a4 4 0 000-8h-1"/></svg>Itineraries</div>
+      <div class="nav-item" id="nav-leads" onclick="nav('leads')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.87"/></svg>Leads<span class="nav-badge" id="badge-leads">0</span></div>
+      <div class="nav-item" id="nav-bookings" onclick="nav('bookings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Bookings</div>
+      <div class="nav-item" id="nav-itinerary" onclick="nav('itinerary')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 20l-5-5 5-5M4 15h12a4 4 0 000-8h-1"/></svg>Itineraries</div>
       <div class="nav-section">Operations</div>
-      <div class="nav-item" id="nav-pretrip" onclick="nav('pretrip')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Pre-Trip<span class="nav-badge" id="badge-pretrip" style="display:none">!</span></div>
-      <div class="nav-item" id="nav-ontrip" onclick="nav('ontrip')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>On-Trip<span class="nav-badge" id="badge-ontrip" style="display:none">●</span></div>
-      <div class="nav-item" id="nav-posttrip" onclick="nav('posttrip')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Post-Trip</div>
+      <div class="nav-item" id="nav-pretrip" onclick="nav('pretrip')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Pre-Trip<span class="nav-badge" id="badge-pretrip" style="display:none">!</span></div>
+      <div class="nav-item" id="nav-ontrip" onclick="nav('ontrip')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>On-Trip<span class="nav-badge" id="badge-ontrip" style="display:none">●</span></div>
+      <div class="nav-item" id="nav-posttrip" onclick="nav('posttrip')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Post-Trip</div>
       <div class="nav-section">Back Office</div>
-      <div class="nav-item" id="nav-suppliers" onclick="nav('suppliers')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Suppliers</div>
-      <div class="nav-item" id="nav-analytics" onclick="nav('analytics')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics</div>
+      <div class="nav-item" id="nav-suppliers" onclick="nav('suppliers')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Suppliers</div>
+      <div class="nav-item" id="nav-analytics" onclick="nav('analytics')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics</div>
     </div>
     <div class="user-footer">
       <div class="avatar">AM</div>
@@ -209,211 +204,157 @@ textarea{resize:vertical;min-height:60px}
   </div>
 </div>
 
-<!-- MODALS -->
+<!-- MODAL: NEW LEAD -->
 <div id="modal-lead" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('modal-lead')">
   <div class="modal"><h3>New Lead</h3>
-    <div class="r2">
-      <div class="form-group"><label>Client Name</label><input type="text" id="lead-name" placeholder="Full name"/></div>
-      <div class="form-group"><label>Email</label><input type="email" id="lead-email" placeholder="email@example.com"/></div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Phone</label><input type="tel" id="lead-phone" placeholder="+254 700 000000"/></div>
-      <div class="form-group"><label>Source</label><select id="lead-source"><option>Website</option><option>Referral</option><option>Social Media</option><option>Phone</option><option>Email</option><option>Walk-in</option></select></div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Tour Interest</label><input type="text" id="lead-tour" placeholder="e.g. Maasai Mara Safari"/></div>
-      <div class="form-group"><label>Budget (USD)</label><input type="text" id="lead-budget" placeholder="e.g. $3,500"/></div>
-    </div>
-    <div class="form-group"><label>Notes</label><textarea id="lead-notes" placeholder="Any additional notes..."></textarea></div>
+    <div class="r2"><div class="form-group"><label>Client Name</label><input type="text" id="lead-name" placeholder="Full name"/></div><div class="form-group"><label>Email</label><input type="email" id="lead-email"/></div></div>
+    <div class="r2"><div class="form-group"><label>Phone</label><input type="tel" id="lead-phone" placeholder="+254 700 000000"/></div><div class="form-group"><label>Source</label><select id="lead-source"><option>Website</option><option>Referral</option><option>Social Media</option><option>Phone</option><option>Email</option><option>Walk-in</option></select></div></div>
+    <div class="r2"><div class="form-group"><label>Tour Interest</label><input type="text" id="lead-tour" placeholder="e.g. Maasai Mara Safari"/></div><div class="form-group"><label>Budget</label><input type="text" id="lead-budget" placeholder="e.g. $3,500 or Ksh 450,000"/></div></div>
+    <div class="form-group"><label>Notes</label><textarea id="lead-notes"></textarea></div>
     <div class="modal-footer"><button class="btn" onclick="closeModal('modal-lead')">Cancel</button><button class="btn primary" onclick="saveLead()">Save Lead</button></div>
   </div>
 </div>
 
+<!-- MODAL: NEW BOOKING -->
 <div id="modal-booking" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('modal-booking')">
   <div class="modal"><h3>New Booking</h3>
-    <div class="r2">
-      <div class="form-group"><label>Client Name</label><input type="text" id="bk-client" placeholder="Full name"/></div>
-      <div class="form-group"><label>Tour / Package Name</label><input type="text" id="bk-tour" placeholder="e.g. Maasai Mara 7-Day Safari"/></div>
-    </div>
-    <div class="r3">
-      <div class="form-group"><label>Safari Start Date</label><input type="date" id="bk-start"/></div>
-      <div class="form-group"><label>Safari End Date</label><input type="date" id="bk-end"/></div>
-      <div class="form-group"><label>Passengers</label><input type="number" id="bk-pax" min="1" value="1"/></div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Total Price (USD)</label><input type="number" id="bk-total" placeholder="5000"/></div>
-      <div class="form-group"><label>Amount Paid (USD)</label><input type="number" id="bk-paid" placeholder="0"/></div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Guide Name</label><input type="text" id="bk-guide" placeholder="Optional"/></div>
-      <div class="form-group"><label>Primary Lodge / Hotel</label><input type="text" id="bk-hotel" placeholder="Optional"/></div>
-    </div>
+    <div class="r2"><div class="form-group"><label>Client Name</label><input type="text" id="bk-client"/></div><div class="form-group"><label>Tour / Package Name</label><input type="text" id="bk-tour" placeholder="e.g. Maasai Mara 7-Day Safari"/></div></div>
+    <div class="r3"><div class="form-group"><label>Safari Start Date</label><input type="date" id="bk-start"/></div><div class="form-group"><label>Safari End Date</label><input type="date" id="bk-end"/></div><div class="form-group"><label>Passengers</label><input type="number" id="bk-pax" min="1" value="1"/></div></div>
+    <div class="r2"><div class="form-group"><label>Total Price (USD)</label><input type="number" id="bk-total"/></div><div class="form-group"><label>Amount Paid (USD)</label><input type="number" id="bk-paid" value="0"/></div></div>
+    <div class="r2"><div class="form-group"><label>Guide Name</label><input type="text" id="bk-guide"/></div><div class="form-group"><label>Primary Lodge / Hotel</label><input type="text" id="bk-hotel"/></div></div>
     <div class="modal-footer"><button class="btn" onclick="closeModal('modal-booking')">Cancel</button><button class="btn primary" onclick="saveBooking()">Save Booking</button></div>
   </div>
 </div>
 
+<!-- MODAL: NEW ITINERARY -->
 <div id="modal-itinerary" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('modal-itinerary')">
   <div class="modal"><h3>New Itinerary</h3>
-    <div class="r2">
-      <div class="form-group"><label>Itinerary Title</label><input type="text" id="it-name" placeholder="e.g. Maasai Mara 7-Day Safari"/></div>
-      <div class="form-group"><label>Client Name</label><input type="text" id="it-client" placeholder="Client full name"/></div>
-    </div>
-    <div class="r3">
-      <div class="form-group"><label>Start Date</label><input type="date" id="it-start"/></div>
-      <div class="form-group"><label>End Date</label><input type="date" id="it-end"/></div>
-      <div class="form-group"><label>Pax</label><input type="number" id="it-pax" min="1" value="2"/></div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Destination(s)</label><input type="text" id="it-dest" placeholder="e.g. Maasai Mara, Amboseli"/></div>
-      <div class="form-group"><label>Tour Type</label><select id="it-type"><option>Safari</option><option>Beach</option><option>Mountain Trek</option><option>Cultural</option><option>Combined</option></select></div>
-    </div>
-    <div class="form-group"><label>Price Per Person (USD)</label><input type="number" id="it-price" placeholder="2500"/></div>
-    <div class="form-group"><label>Introduction / Overview</label><textarea id="it-intro" rows="3" placeholder="Brief overview of the safari experience..."></textarea></div>
+    <div class="r2"><div class="form-group"><label>Itinerary Title</label><input type="text" id="it-name" placeholder="e.g. Maasai Mara 7-Day Safari"/></div><div class="form-group"><label>Client Name</label><input type="text" id="it-client"/></div></div>
+    <div class="r3"><div class="form-group"><label>Start Date</label><input type="date" id="it-start"/></div><div class="form-group"><label>End Date</label><input type="date" id="it-end"/></div><div class="form-group"><label>Pax</label><input type="number" id="it-pax" min="1" value="2"/></div></div>
+    <div class="r2"><div class="form-group"><label>Destination(s)</label><input type="text" id="it-dest" placeholder="e.g. Maasai Mara, Amboseli"/></div><div class="form-group"><label>Tour Type</label><select id="it-type"><option>Safari</option><option>Beach</option><option>Mountain Trek</option><option>Cultural</option><option>Combined</option></select></div></div>
+    <div class="r2"><div class="form-group"><label>Price Per Person (USD)</label><input type="number" id="it-price"/></div><div class="form-group"><label>Client Type</label><select id="it-client-type"><option value="nonresident">Non-Resident</option><option value="resident">Resident</option><option value="citizen">Citizen</option></select></div></div>
+    <div class="form-group"><label>Overview / Introduction</label><textarea id="it-intro" rows="3" placeholder="Brief description of the safari..."></textarea></div>
     <div class="modal-footer"><button class="btn" onclick="closeModal('modal-itinerary')">Cancel</button><button class="btn primary" onclick="saveItinerary()">Create Itinerary</button></div>
   </div>
 </div>
 
+<!-- MODAL: ADD SUPPLIER -->
 <div id="modal-supplier" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('modal-supplier')">
   <div class="modal"><h3>Add Supplier</h3>
-    <div class="r2">
-      <div class="form-group"><label>Supplier Name</label><input type="text" id="sup-name" placeholder="Name"/></div>
-      <div class="form-group"><label>Category</label>
-        <select id="sup-cat"><option value="lodge">Lodge / Camp</option><option value="park">National Park / Reserve</option><option value="airline">Airline</option><option value="transport">Transport / Transfer</option><option value="activity">Activity Provider</option><option value="other">Other</option></select>
-      </div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Region / Location</label><input type="text" id="sup-region" placeholder="e.g. Maasai Mara, Kenya"/></div>
-      <div class="form-group"><label>Contact Email</label><input type="email" id="sup-email" placeholder="reservations@lodge.com"/></div>
-    </div>
-    <div class="r2">
-      <div class="form-group"><label>Contact Phone</label><input type="tel" id="sup-phone" placeholder="+254 700 000000"/></div>
-      <div class="form-group"><label>Contract Renewal Date</label><input type="date" id="sup-renewal"/></div>
-    </div>
-    <div class="r3">
-      <div class="form-group"><label>Rate Type</label><select id="sup-ratetype"><option value="per_person_per_night">Per Person Per Night</option><option value="per_person">Per Person</option><option value="per_vehicle">Per Vehicle</option><option value="per_day">Per Day</option><option value="flat">Flat Rate</option></select></div>
-      <div class="form-group"><label>Low Season Rate ($)</label><input type="number" id="sup-rate-low" placeholder="150"/></div>
-      <div class="form-group"><label>High Season Rate ($)</label><input type="number" id="sup-rate-high" placeholder="280"/></div>
-    </div>
-    <div class="form-group"><label>Notes / Inclusions</label><textarea id="sup-notes" rows="2" placeholder="e.g. Full board, game drives, park fees included..."></textarea></div>
+    <div class="r2"><div class="form-group"><label>Supplier Name</label><input type="text" id="sup-name"/></div><div class="form-group"><label>Category</label><select id="sup-cat"><option value="lodge">Lodge / Camp</option><option value="park">National Park / Reserve</option><option value="airline">Airline</option><option value="transport">Transport / Transfer</option><option value="activity">Activity Provider</option><option value="other">Other</option></select></div></div>
+    <div class="r2"><div class="form-group"><label>Region / Location</label><input type="text" id="sup-region"/></div><div class="form-group"><label>Contact Email</label><input type="email" id="sup-email"/></div></div>
+    <div class="r2"><div class="form-group"><label>Contact Phone</label><input type="tel" id="sup-phone"/></div><div class="form-group"><label>Contract Renewal Date</label><input type="date" id="sup-renewal"/></div></div>
+    <div class="r2"><div class="form-group"><label>Rate Type</label><select id="sup-ratetype"><option value="per_person_per_night">Per Person Per Night</option><option value="per_person">Per Person</option><option value="per_vehicle">Per Vehicle Per Day</option><option value="per_day">Per Day</option><option value="flat">Flat Rate</option></select></div><div class="form-group"><label>Rate Currency</label><select id="sup-ratecur"><option value="USD">USD ($)</option><option value="KES">KES (Ksh)</option></select></div></div>
+    <div class="r3"><div class="form-group"><label>Low Season Rate</label><input type="number" id="sup-rate-low"/></div><div class="form-group"><label>High Season Rate</label><input type="number" id="sup-rate-high"/></div><div class="form-group"><label>Resident Rate</label><input type="number" id="sup-rate-resident" placeholder="KES"/></div></div>
+    <div class="form-group"><label>Notes / Inclusions</label><textarea id="sup-notes" rows="2"></textarea></div>
     <div class="modal-footer"><button class="btn" onclick="closeModal('modal-supplier')">Cancel</button><button class="btn primary" onclick="saveSupplier()">Save Supplier</button></div>
   </div>
 </div>
 
-<!-- PROFORMA INVOICE COST BUILDER MODAL -->
+<!-- MODAL: PROFORMA INVOICE -->
 <div id="modal-invoice" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('modal-invoice')">
-  <div class="modal" style="max-width:700px">
+  <div class="modal" style="max-width:660px">
     <h3>🧾 Build Proforma Invoice</h3>
-    <div id="inv-booking-info" style="background:var(--bg2);border-radius:var(--radius);padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--text2)">Select a booking to load details</div>
+    <div id="inv-bk-info" style="background:var(--bg2);border-radius:var(--radius);padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--text2)">—</div>
 
-    <!-- CLIENT TYPE SELECTOR -->
-    <div style="border:2px solid #c8893a;border-radius:var(--radius);padding:12px;margin-bottom:12px;background:var(--bg2)">
-      <div style="font-size:12px;font-weight:700;margin-bottom:10px;color:var(--text)">👤 Client Type & Currency</div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;padding:8px 14px;border:1.5px solid var(--border2);border-radius:var(--radius);flex:1;min-width:160px" id="lbl-nonresident">
-          <input type="radio" name="inv-client-type" id="inv-type-nonresident" value="nonresident" onchange="switchCurrency()" checked/>
-          <span><strong>Non-Resident</strong><br><span style="font-size:11px;color:var(--text3)">Billed in USD ($)</span></span>
-        </label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;padding:8px 14px;border:1.5px solid var(--border2);border-radius:var(--radius);flex:1;min-width:160px" id="lbl-resident">
-          <input type="radio" name="inv-client-type" id="inv-type-resident" value="resident" onchange="switchCurrency()"/>
-          <span><strong>Resident</strong><br><span style="font-size:11px;color:var(--text3)">Billed in KES (Ksh)</span></span>
-        </label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;padding:8px 14px;border:1.5px solid var(--border2);border-radius:var(--radius);flex:1;min-width:160px" id="lbl-citizen">
-          <input type="radio" name="inv-client-type" id="inv-type-citizen" value="citizen" onchange="switchCurrency()"/>
-          <span><strong>Citizen</strong><br><span style="font-size:11px;color:var(--text3)">Billed in KES (Ksh)</span></span>
-        </label>
+    <!-- CLIENT TYPE -->
+    <div style="margin-bottom:14px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-bottom:8px">Step 1 — Select client type & currency</div>
+      <div class="cur-toggle">
+        <button class="cur-opt active" id="btn-nonresident" onclick="setCurType('nonresident')">🌍 Non-Resident<br><small style="font-weight:400;font-size:10px">Billed in USD ($)</small></button>
+        <button class="cur-opt" id="btn-resident" onclick="setCurType('resident')">🇰🇪 Resident<br><small style="font-weight:400;font-size:10px">Billed in KES (Ksh)</small></button>
+        <button class="cur-opt" id="btn-citizen" onclick="setCurType('citizen')">🏠 Citizen<br><small style="font-weight:400;font-size:10px">Billed in KES (Ksh)</small></button>
       </div>
-      <div id="inv-currency-note" style="margin-top:10px;font-size:12px;padding:7px 10px;border-radius:5px;background:var(--blue-bg);color:var(--blue-text)">
-        💡 Non-Resident: all costs entered and invoiced in <strong>USD ($)</strong>
+      <div id="inv-cur-note" style="font-size:12px;padding:8px 12px;border-radius:var(--radius);background:var(--blue-bg);color:var(--blue-text);margin-bottom:8px">
+        💵 <strong>Non-Resident:</strong> All costs entered and invoiced in <strong>USD ($)</strong>. Non-resident park rates apply.
       </div>
-      <div id="inv-kes-rate-row" style="margin-top:8px;display:none">
+      <div id="inv-fx-row" style="display:none">
         <div class="r2">
-          <div class="form-group" style="margin:0"><label>USD → KES Exchange Rate</label><input type="number" id="inv-fx-rate" value="129" placeholder="129" oninput="recalcInvoice()"/></div>
-          <div class="form-group" style="margin:0"><label>Note (optional)</label><input type="text" id="inv-fx-note" placeholder="e.g. CBK rate 09 Jun 2026"/></div>
+          <div class="form-group" style="margin:0"><label>USD → KES Exchange Rate</label><input type="number" id="inv-fx" value="129" oninput="recalc()"/></div>
+          <div class="form-group" style="margin:0"><label>FX Rate Note (optional)</label><input type="text" id="inv-fx-note" placeholder="e.g. CBK rate 09 Jun 2026"/></div>
         </div>
       </div>
     </div>
 
-    <div id="inv-cost-label" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:10px">Cost Components — Per Person (USD)</div>
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-bottom:10px" id="inv-cost-hdr">Step 2 — Enter cost components per person (USD)</div>
 
-    <!-- Transport -->
-    <div style="border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;background:var(--bg2)">
-      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">🚙 Transport / Safari Vehicle</div>
+    <!-- TRANSPORT -->
+    <div class="inv-section">
+      <div class="inv-section-title">🚙 Transport / Safari Vehicle</div>
       <div class="r3">
-        <div class="form-group" style="margin:0"><label id="lbl-vrate">Vehicle Cost Per Day ($)</label><input type="number" id="inv-vehicle-rate" placeholder="200" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label>Number of Days</label><input type="number" id="inv-vehicle-days" placeholder="7" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label>People in Vehicle</label><input type="number" id="inv-vehicle-pax" placeholder="4" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label id="lv">Vehicle Rate Per Day</label><input type="number" id="iv-vrate" placeholder="200" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label>Safari Days</label><input type="number" id="iv-vdays" placeholder="7" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label>People in Vehicle</label><input type="number" id="iv-vpax" placeholder="4" oninput="recalc()"/></div>
       </div>
-      <div style="font-size:11px;color:var(--text3);margin-top:6px">Formula: (Vehicle Rate × Days) ÷ People = cost per person</div>
-      <div id="inv-transport-result" style="font-size:12px;font-weight:600;color:var(--green-text);margin-top:4px"></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:4px">Formula: (Rate × Days) ÷ People = per person share</div>
+      <div class="inv-result" id="iv-vtrans-res"></div>
     </div>
 
-    <!-- Accommodation -->
-    <div style="border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;background:var(--bg2)">
-      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">🏕 Accommodation</div>
+    <!-- ACCOMMODATION -->
+    <div class="inv-section">
+      <div class="inv-section-title">🏕 Accommodation</div>
       <div class="r2">
-        <div class="form-group" style="margin:0"><label id="lbl-arate">Rate Per Person Per Night ($)</label><input type="number" id="inv-accom-rate" placeholder="320" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label>Number of Nights</label><input type="number" id="inv-accom-nights" placeholder="6" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label id="la">Rate Per Person Per Night</label><input type="number" id="iv-arate" placeholder="320" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label>Number of Nights</label><input type="number" id="iv-anights" placeholder="6" oninput="recalc()"/></div>
       </div>
-      <div id="inv-accom-result" style="font-size:12px;font-weight:600;color:var(--green-text);margin-top:6px"></div>
+      <div class="inv-result" id="iv-accom-res"></div>
     </div>
 
-    <!-- Park Fees -->
-    <div style="border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;background:var(--bg2)">
-      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">🌿 Park / Conservation Fees</div>
+    <!-- PARK FEES -->
+    <div class="inv-section">
+      <div class="inv-section-title">🌿 Park / Conservation Fees</div>
       <div class="r2">
-        <div class="form-group" style="margin:0"><label id="lbl-prate">Park Fee Per Person Per Day ($)</label><input type="number" id="inv-park-rate" placeholder="90" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label>Number of Days in Park</label><input type="number" id="inv-park-days" placeholder="6" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label id="lp">Park Fee Per Person Per Day</label><input type="number" id="iv-prate" placeholder="90" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label>Days in Park</label><input type="number" id="iv-pdays" placeholder="6" oninput="recalc()"/></div>
       </div>
-      <div id="inv-park-result" style="font-size:12px;font-weight:600;color:var(--green-text);margin-top:6px"></div>
+      <div class="inv-result" id="iv-park-res"></div>
     </div>
 
-    <!-- Meals -->
-    <div style="border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;background:var(--bg2)">
-      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">🍽 Meals & Drinks</div>
+    <!-- MEALS -->
+    <div class="inv-section">
+      <div class="inv-section-title">🍽 Meals & Drinks</div>
       <div class="r2">
-        <div class="form-group" style="margin:0"><label id="lbl-mrate">Meals Per Person Per Day ($)</label><input type="number" id="inv-meals-rate" placeholder="80" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label>Number of Days</label><input type="number" id="inv-meals-days" placeholder="7" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label id="lm">Meals Per Person Per Day</label><input type="number" id="iv-mrate" placeholder="0" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label>Days</label><input type="number" id="iv-mdays" placeholder="7" oninput="recalc()"/></div>
       </div>
-      <div style="font-size:11px;color:var(--text3);margin-top:6px">Leave at 0 if meals are included in accommodation rate</div>
-      <div id="inv-meals-result" style="font-size:12px;font-weight:600;color:var(--green-text);margin-top:4px"></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:4px">Set to 0 if meals are included in accommodation rate</div>
+      <div class="inv-result" id="iv-meals-res"></div>
     </div>
 
-    <!-- Additional -->
-    <div style="border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;background:var(--bg2)">
-      <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">➕ Additional Costs Per Person</div>
+    <!-- ADDITIONAL -->
+    <div class="inv-section">
+      <div class="inv-section-title">➕ Additional Costs Per Person</div>
       <div class="r2">
-        <div class="form-group" style="margin:0"><label id="lbl-aact">Activities ($)</label><input type="number" id="inv-activities" placeholder="450" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label id="lbl-aflights">Domestic Flights ($)</label><input type="number" id="inv-flights" placeholder="240" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label id="lact">Activities</label><input type="number" id="iv-act" placeholder="0" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label id="lfl">Domestic Flights</label><input type="number" id="iv-flights" placeholder="0" oninput="recalc()"/></div>
       </div>
       <div class="r2" style="margin-top:8px">
-        <div class="form-group" style="margin:0"><label id="lbl-asgr">SGR / Train ($)</label><input type="number" id="inv-sgr" placeholder="0" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label id="lbl-aerun">Empty Run / Positioning ($)</label><input type="number" id="inv-empty-run" placeholder="0" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label id="lsgr">SGR / Train</label><input type="number" id="iv-sgr" placeholder="0" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label id="ler">Empty Run / Positioning</label><input type="number" id="iv-erun" placeholder="0" oninput="recalc()"/></div>
       </div>
-      <div class="form-group" style="margin-top:8px;margin-bottom:0"><label id="lbl-aother">Other Costs (label + amount $)</label>
-        <div style="display:flex;gap:8px">
-          <input type="text" id="inv-other-label" placeholder="e.g. Travel insurance, visa, tips..." style="flex:2"/>
-          <input type="number" id="inv-other-amount" placeholder="0" style="flex:1" oninput="recalcInvoice()"/>
-        </div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <input type="text" id="iv-olabel" placeholder="Other cost description..." style="flex:2"/>
+        <input type="number" id="iv-oamt" placeholder="0" style="flex:1" oninput="recalc()"/>
       </div>
     </div>
 
-    <!-- Markup -->
-    <div style="border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:14px;background:var(--bg2)">
+    <!-- MARKUP & PAX -->
+    <div class="inv-section">
       <div class="r2">
-        <div class="form-group" style="margin:0"><label>Markup / Profit Margin (%)</label><input type="number" id="inv-markup" placeholder="15" oninput="recalcInvoice()"/></div>
-        <div class="form-group" style="margin:0"><label>Total Pax (for grand total)</label><input type="number" id="inv-total-pax" placeholder="2" oninput="recalcInvoice()"/></div>
+        <div class="form-group" style="margin:0"><label>Markup / Profit Margin (%)</label><input type="number" id="iv-markup" value="15" oninput="recalc()"/></div>
+        <div class="form-group" style="margin:0"><label>Total Guests (for grand total)</label><input type="number" id="iv-tpax" value="2" oninput="recalc()"/></div>
       </div>
     </div>
 
     <!-- LIVE SUMMARY -->
-    <div id="inv-summary" style="background:#1a3a2a;color:#fff;border-radius:var(--radius);padding:14px 16px;margin-bottom:16px;font-size:13px;display:none">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.7;margin-bottom:10px">Live Cost Summary</div>
-      <div id="inv-summary-lines"></div>
+    <div class="summary-box" id="inv-summary">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;opacity:.6;margin-bottom:10px">Live Cost Summary</div>
+      <div id="inv-sum-lines"></div>
     </div>
 
     <div class="modal-footer">
       <button class="btn" onclick="closeModal('modal-invoice')">Cancel</button>
-      <button class="btn primary" onclick="generateInvoice()">Generate & Download Invoice</button>
+      <button class="btn primary" onclick="buildInvoice()">Generate & Download Invoice</button>
     </div>
   </div>
 </div>
@@ -421,103 +362,85 @@ textarea{resize:vertical;min-height:60px}
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-let sb = null;
-let currentView = 'dashboard';
-let cache = { leads:[], bookings:[], suppliers:[], itineraries:[], messages:[] };
+let sb=null, currentView='dashboard', _invBkId=null, _curType='nonresident';
+let cache={leads:[],bookings:[],suppliers:[],itineraries:[],messages:[]};
 
 // ── INIT ──
-window.addEventListener('DOMContentLoaded', () => {
-  const url = localStorage.getItem('sb_url');
-  const key = localStorage.getItem('sb_key');
-  if (url && key) initApp(url, key);
-  else document.getElementById('setup-screen').style.display = 'flex';
+window.addEventListener('DOMContentLoaded',()=>{
+  const url=localStorage.getItem('sb_url'), key=localStorage.getItem('sb_key');
+  if(url&&key) initApp(url,key);
+  else document.getElementById('setup-screen').style.display='flex';
 });
-
-window.connectSupabase = () => {
-  const url = document.getElementById('setup-url').value.trim();
-  const key = document.getElementById('setup-key').value.trim();
-  if (!url || !key) { toast('Please enter both URL and key','error'); return; }
-  localStorage.setItem('sb_url', url);
-  localStorage.setItem('sb_key', key);
-  initApp(url, key);
+window.connectSupabase=()=>{
+  const url=document.getElementById('setup-url').value.trim();
+  const key=document.getElementById('setup-key').value.trim();
+  if(!url||!key){toast('Enter both URL and key','error');return;}
+  localStorage.setItem('sb_url',url); localStorage.setItem('sb_key',key);
+  initApp(url,key);
 };
-
-window.disconnectDB = () => {
-  if (!confirm('Change database connection?')) return;
-  localStorage.removeItem('sb_url'); localStorage.removeItem('sb_key');
-  location.reload();
+window.disconnectDB=()=>{
+  if(!confirm('Change database?'))return;
+  localStorage.removeItem('sb_url'); localStorage.removeItem('sb_key'); location.reload();
 };
-
-async function initApp(url, key) {
-  sb = createClient(url, key);
-  document.getElementById('setup-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
-  await loadAll();
-  renderView();
-  subscribeRealtime();
+async function initApp(url,key){
+  sb=createClient(url,key);
+  document.getElementById('setup-screen').style.display='none';
+  document.getElementById('app').style.display='flex';
+  await loadAll(); renderView(); subscribeRealtime();
 }
 
 // ── DATA ──
-async function loadAll() {
-  const [l,b,s,it,msg] = await Promise.all([
+async function loadAll(){
+  const [l,b,s,it,msg]=await Promise.all([
     sb.from('leads').select('*').order('created_at',{ascending:false}),
     sb.from('bookings').select('*').order('start_date',{ascending:true}),
     sb.from('suppliers').select('*').order('name'),
     sb.from('itineraries').select('*').order('created_at',{ascending:false}),
     sb.from('messages').select('*').order('created_at',{ascending:true}),
   ]);
-  cache.leads = l.data||[]; cache.bookings = b.data||[];
-  cache.suppliers = s.data||[]; cache.itineraries = it.data||[];
-  cache.messages = msg.data||[];
-  updateBadges();
+  cache.leads=l.data||[]; cache.bookings=b.data||[];
+  cache.suppliers=s.data||[]; cache.itineraries=it.data||[];
+  cache.messages=msg.data||[]; updateBadges();
+}
+function updateBadges(){
+  document.getElementById('badge-leads').textContent=cache.leads.filter(x=>!['won','lost'].includes(x.status)).length;
+  document.getElementById('badge-ontrip').style.display=cache.bookings.some(x=>x.status==='intransit')?'inline':'none';
+  document.getElementById('badge-pretrip').style.display=cache.bookings.some(b=>b.status==='confirmed'&&b.passport_status==='pending')?'inline':'none';
+}
+function subscribeRealtime(){
+  sb.channel('db').on('postgres_changes',{event:'*',schema:'public'},async()=>{await loadAll();renderView();}).subscribe();
 }
 
-function updateBadges() {
-  const ol = cache.leads.filter(x=>!['won','lost'].includes(x.status)).length;
-  document.getElementById('badge-leads').textContent = ol;
-  const ot = cache.bookings.filter(x=>x.status==='intransit').length;
-  document.getElementById('badge-ontrip').style.display = ot?'inline':'none';
-  const md = cache.bookings.filter(b=>b.status==='confirmed'&&b.passport_status==='pending').length;
-  document.getElementById('badge-pretrip').style.display = md?'inline':'none';
-}
-
-function subscribeRealtime() {
-  sb.channel('db-changes').on('postgres_changes',{event:'*',schema:'public'},async()=>{
-    await loadAll(); renderView();
-  }).subscribe();
-}
+// ── HELPERS ──
+const fmtDate=d=>{if(!d)return'—';return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});};
+const nights=(s,e)=>s&&e?Math.max(0,Math.round((new Date(e)-new Date(s))/86400000)):0;
+const dLeft=d=>d?Math.ceil((new Date(d)-new Date())/86400000):null;
+const fUSD=(n,d=2)=>n>0?'$'+n.toFixed(d):'—';
+const fKES=(n)=>n>0?'Ksh '+Math.round(n).toLocaleString():'—';
 
 // ── NAV ──
-window.nav = (v) => {
-  currentView = v;
+window.nav=(v)=>{
+  currentView=v;
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
-  const el = document.getElementById('nav-'+v);
-  if(el) el.classList.add('active');
-  const titles = {dashboard:'Dashboard',leads:'Leads & Pipeline',bookings:'Bookings',itinerary:'Itinerary Builder',pretrip:'Pre-Trip Management',ontrip:'On-Trip Support',posttrip:'Post-Trip Follow-up',suppliers:'Supplier Management',analytics:'Analytics'};
-  document.getElementById('view-title').textContent = titles[v]||v;
+  const el=document.getElementById('nav-'+v); if(el)el.classList.add('active');
+  const titles={dashboard:'Dashboard',leads:'Leads & Pipeline',bookings:'Bookings',itinerary:'Itinerary Builder',pretrip:'Pre-Trip Management',ontrip:'On-Trip Support',posttrip:'Post-Trip Follow-up',suppliers:'Supplier Management',analytics:'Analytics'};
+  document.getElementById('view-title').textContent=titles[v]||v;
   renderView();
 };
-
-function renderView() {
-  const views = {dashboard:vDashboard,leads:vLeads,bookings:vBookings,itinerary:vItinerary,pretrip:vPreTrip,ontrip:vOnTrip,posttrip:vPostTrip,suppliers:vSuppliers,analytics:vAnalytics};
-  document.getElementById('main-content').innerHTML = (views[currentView]||vDashboard)();
+function renderView(){
+  const views={dashboard:vDashboard,leads:vLeads,bookings:vBookings,itinerary:vItinerary,pretrip:vPreTrip,ontrip:vOnTrip,posttrip:vPostTrip,suppliers:vSuppliers,analytics:vAnalytics};
+  document.getElementById('main-content').innerHTML=(views[currentView]||vDashboard)();
 }
 
-// helpers
-function fmtDate(d){ if(!d)return'—'; const dt=new Date(d); return dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
-function nightsBetween(s,e){ if(!s||!e)return 0; return Math.max(0,Math.round((new Date(e)-new Date(s))/86400000)); }
-function daysLeft(d){ if(!d)return null; return Math.ceil((new Date(d)-new Date())/86400000); }
-
 // ── DASHBOARD ──
-function vDashboard() {
-  const activeB = cache.bookings.filter(b=>['confirmed','intransit'].includes(b.status)).length;
-  const openL = cache.leads.filter(l=>!['won','lost'].includes(l.status)).length;
-  const won = cache.leads.filter(l=>l.status==='won').length;
-  const conv = cache.leads.length?Math.round(won/cache.leads.length*100):0;
-  const rev = cache.bookings.reduce((a,b)=>a+(b.total_price||0),0);
-  const inTrip = cache.bookings.filter(b=>b.status==='intransit');
-  const missingDocs = cache.bookings.filter(b=>b.status==='confirmed'&&b.passport_status==='pending');
-  const upcoming = cache.bookings.filter(b=>b.status==='confirmed').sort((a,b)=>new Date(a.start_date)-new Date(b.start_date));
+function vDashboard(){
+  const activeB=cache.bookings.filter(b=>['confirmed','intransit'].includes(b.status)).length;
+  const openL=cache.leads.filter(l=>!['won','lost'].includes(l.status)).length;
+  const won=cache.leads.filter(l=>l.status==='won').length;
+  const conv=cache.leads.length?Math.round(won/cache.leads.length*100):0;
+  const rev=cache.bookings.reduce((a,b)=>a+(b.total_price||0),0);
+  const inTrip=cache.bookings.filter(b=>b.status==='intransit');
+  const missDocs=cache.bookings.filter(b=>b.status==='confirmed'&&b.passport_status==='pending');
   return `
   <div class="grid-4" style="margin-bottom:18px">
     <div class="metric"><label>Active Bookings</label><div class="val">${activeB}</div></div>
@@ -525,58 +448,45 @@ function vDashboard() {
     <div class="metric"><label>Conversion Rate</label><div class="val">${conv}%</div></div>
     <div class="metric"><label>Total Revenue</label><div class="val">$${rev.toLocaleString()}</div></div>
   </div>
-  ${inTrip.map(b=>`<div class="alert info">✈ <strong>${b.client_name}</strong> is currently on safari — ${b.tour_name} (ends ${fmtDate(b.end_date)})</div>`).join('')}
-  ${missingDocs.map(b=>`<div class="alert warn">⚠ <strong>${b.client_name}</strong>: passport documents still pending — departs ${fmtDate(b.start_date)}</div>`).join('')}
+  ${inTrip.map(b=>`<div class="alert info">✈ <strong>${b.client_name}</strong> is on safari — ${b.tour_name} (ends ${fmtDate(b.end_date)})</div>`).join('')}
+  ${missDocs.map(b=>`<div class="alert warn">⚠ <strong>${b.client_name}</strong>: passport documents pending — departs ${fmtDate(b.start_date)}</div>`).join('')}
   <div class="grid-2">
-    <div class="card">
-      <div class="section-header"><h3>Recent Leads</h3><button class="btn" style="font-size:11px" onclick="nav('leads')">View all →</button></div>
+    <div class="card"><div class="section-header"><h3>Recent Leads</h3><button class="btn" style="font-size:11px" onclick="nav('leads')">View all →</button></div>
       <table class="tbl"><thead><tr><th>Client</th><th>Tour</th><th>Status</th></tr></thead><tbody>
         ${cache.leads.slice(0,5).map(l=>`<tr><td><strong>${l.client_name}</strong></td><td>${l.tour_interest||'—'}</td><td><span class="badge ${l.status}">${l.status}</span></td></tr>`).join('')}
-      </tbody></table>
-    </div>
-    <div class="card">
-      <div class="section-header"><h3>Upcoming Safaris</h3><button class="btn" style="font-size:11px" onclick="nav('bookings')">View all →</button></div>
+      </tbody></table></div>
+    <div class="card"><div class="section-header"><h3>Upcoming Safaris</h3><button class="btn" style="font-size:11px" onclick="nav('bookings')">View all →</button></div>
       <table class="tbl"><thead><tr><th>Client</th><th>Start</th><th>End</th><th>Nights</th><th>Status</th></tr></thead><tbody>
-        ${upcoming.slice(0,5).map(b=>`<tr>
-          <td><strong>${b.client_name}</strong></td>
-          <td>${fmtDate(b.start_date)}</td>
-          <td>${fmtDate(b.end_date)}</td>
-          <td>${nightsBetween(b.start_date,b.end_date)}</td>
-          <td><span class="badge ${b.status}">${b.status}</span></td>
-        </tr>`).join('')}
-      </tbody></table>
-    </div>
+        ${cache.bookings.filter(b=>b.status!=='completed').slice(0,5).map(b=>`<tr><td><strong>${b.client_name}</strong></td><td>${fmtDate(b.start_date)}</td><td>${fmtDate(b.end_date)}</td><td>${nights(b.start_date,b.end_date)}</td><td><span class="badge ${b.status}">${b.status}</span></td></tr>`).join('')}
+      </tbody></table></div>
   </div>`;
 }
 
 // ── LEADS ──
-function vLeads() {
-  const stages=['new','contacted','proposal','negotiation'];
-  const labels={new:'New',contacted:'Contacted',proposal:'Proposal Sent',negotiation:'Negotiation',won:'Won',lost:'Lost'};
+function vLeads(){
+  const labels={new:'New',contacted:'Contacted',proposal:'Proposal',negotiation:'Negotiation',won:'Won',lost:'Lost'};
   return `
   <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
-    ${Object.entries(labels).map(([s,l])=>`<span class="badge ${s}" style="cursor:pointer;padding:4px 10px" onclick="filterLeads('${s}')">${l} (${cache.leads.filter(x=>x.status===s).length})</span>`).join('')}
+    ${Object.entries(labels).map(([s,l])=>`<span class="badge ${s}" style="cursor:pointer;padding:4px 10px">${l} (${cache.leads.filter(x=>x.status===s).length})</span>`).join('')}
     <button class="btn primary" style="margin-left:auto" onclick="openModal('modal-lead')">+ New Lead</button>
   </div>
-  <div class="card" style="margin-bottom:14px">
-    <div class="section-header"><h3>Pipeline Board</h3></div>
+  <div class="card" style="margin-bottom:14px"><div class="section-header"><h3>Pipeline Board</h3></div>
     <div class="pipeline">
-      ${stages.map(s=>`<div class="pipe-col">
+      ${['new','contacted','proposal','negotiation'].map(s=>`<div class="pipe-col">
         <div class="pipe-col-header"><span>${labels[s]}</span><span>${cache.leads.filter(l=>l.status===s).length}</span></div>
         ${cache.leads.filter(l=>l.status===s).map(l=>`<div class="pipe-card">
           <div style="font-size:12.5px;font-weight:600;margin-bottom:2px">${l.client_name}</div>
           <div style="font-size:11px;color:var(--text2)">${l.tour_interest||'—'}</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:2px">${l.budget||''}</div>
+          <div style="font-size:11px;color:var(--text3)">${l.budget||''}</div>
           <button class="btn" style="font-size:10px;padding:2px 7px;margin-top:6px" onclick="advanceLead('${l.id}','${s}')">Advance →</button>
         </div>`).join('')}
       </div>`).join('')}
     </div>
   </div>
-  <div class="card">
-    <div class="section-header"><h3>All Leads (${cache.leads.length})</h3></div>
-    <table class="tbl"><thead><tr><th>Client</th><th>Source</th><th>Tour Interest</th><th>Budget</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody>
+  <div class="card"><div class="section-header"><h3>All Leads (${cache.leads.length})</h3></div>
+    <table class="tbl"><thead><tr><th>Client</th><th>Source</th><th>Tour</th><th>Budget</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>
       ${cache.leads.map(l=>`<tr>
-        <td><strong>${l.client_name}</strong><br><span style="font-size:11px;color:var(--text3)">${l.email||''}</span></td>
+        <td><strong>${l.client_name}</strong><br><span style="font-size:10px;color:var(--text3)">${l.email||''}</span></td>
         <td>${l.source||'—'}</td><td>${l.tour_interest||'—'}</td><td>${l.budget||'—'}</td>
         <td><span class="badge ${l.status}">${l.status}</span></td>
         <td style="color:var(--text3)">${fmtDate(l.created_at)}</td>
@@ -585,80 +495,66 @@ function vLeads() {
           <button class="btn danger" style="font-size:10px;padding:2px 7px" onclick="deleteLead('${l.id}')">✕</button>
         </td>
       </tr>`).join('')}
-    </tbody></table>
-  </div>`;
+    </tbody></table></div>`;
 }
-
-window.filterLeads = (s) => { renderView(); };
-window.advanceLead = async (id, cur) => {
+window.advanceLead=async(id,cur)=>{
   const order=['new','contacted','proposal','negotiation','won'];
   const i=order.indexOf(cur); if(i<0||i>=order.length-1)return;
-  await sb.from('leads').update({status:order[i+1]}).eq('id',id);
-  toast('Lead moved to: '+order[i+1]);
+  await sb.from('leads').update({status:order[i+1]}).eq('id',id); toast('Lead advanced to: '+order[i+1]);
 };
-window.deleteLead = async (id) => {
-  if(!confirm('Delete this lead?'))return;
-  await sb.from('leads').delete().eq('id',id); toast('Lead deleted');
-};
+window.deleteLead=async(id)=>{if(!confirm('Delete lead?'))return;await sb.from('leads').delete().eq('id',id);toast('Deleted');};
 
 // ── BOOKINGS ──
-function vBookings() {
+function vBookings(){
   return `
   <div class="grid-4" style="margin-bottom:14px">
     ${['confirmed','pending','intransit','completed'].map(s=>`<div class="metric"><label>${s.charAt(0).toUpperCase()+s.slice(1)}</label><div class="val">${cache.bookings.filter(b=>b.status===s).length}</div></div>`).join('')}
   </div>
-  <div class="card">
-    <div class="section-header"><h3>All Bookings (${cache.bookings.length})</h3><button class="btn primary" onclick="openModal('modal-booking')">+ New Booking</button></div>
+  <div class="card"><div class="section-header"><h3>All Bookings (${cache.bookings.length})</h3><button class="btn primary" onclick="openModal('modal-booking')">+ New Booking</button></div>
     <table class="tbl"><thead><tr><th>Client</th><th>Tour / Package</th><th>Safari Start</th><th>Safari End</th><th>Nights</th><th>Pax</th><th>Total</th><th>Paid</th><th>Status</th><th>Actions</th></tr></thead><tbody>
       ${cache.bookings.map(b=>{
-        const paid=b.amount_paid||0, total=b.total_price||0;
-        const nights=nightsBetween(b.start_date,b.end_date);
-        const dl=daysLeft(b.start_date);
+        const n=nights(b.start_date,b.end_date);
+        const dl=dLeft(b.start_date);
+        const paid=b.amount_paid||0,total=b.total_price||0;
         return `<tr>
           <td><strong>${b.client_name}</strong></td>
-          <td style="max-width:130px;font-size:12px">${b.tour_name||'—'}</td>
-          <td><strong>${fmtDate(b.start_date)}</strong>${dl!==null&&dl>0&&b.status==='confirmed'?`<br><span style="font-size:10px;color:${dl<30?'var(--red-text)':'var(--amber-text)'}">${dl}d away</span>`:''}</td>
+          <td style="max-width:120px;font-size:12px">${b.tour_name||'—'}</td>
+          <td><strong>${fmtDate(b.start_date)}</strong>${dl>0&&b.status==='confirmed'?`<br><span style="font-size:10px;color:${dl<30?'var(--red-text)':'var(--amber-text)'}">${dl}d away</span>`:''}</td>
           <td>${fmtDate(b.end_date)}</td>
-          <td style="text-align:center;font-weight:600">${nights||'—'}</td>
+          <td style="text-align:center;font-weight:700">${n||'—'}</td>
           <td style="text-align:center">${b.passengers||1}</td>
           <td>$${total.toLocaleString()}</td>
           <td style="color:${paid>=total?'var(--green-text)':'var(--amber-text)'}">$${paid.toLocaleString()}</td>
-          <td><select style="font-size:11px;padding:3px 6px;width:105px" onchange="updateBkStatus('${b.id}',this.value)">
+          <td><select style="font-size:11px;padding:3px;width:100px" onchange="updateBkStatus('${b.id}',this.value)">
             ${['pending','confirmed','intransit','completed','cancelled'].map(s=>`<option value="${s}" ${b.status===s?'selected':''}>${s}</option>`).join('')}
           </select></td>
           <td style="display:flex;gap:4px;flex-wrap:wrap">
-            <button class="btn info" style="font-size:10px;padding:2px 7px" onclick="generateItineraryDoc('${b.id}')">📄 Itinerary</button>
-            <button class="btn success" style="font-size:10px;padding:2px 7px" onclick="openInvoiceModal('${b.id}')">🧾 Invoice</button>
+            <button class="btn info" style="font-size:10px;padding:2px 6px" onclick="genItineraryDoc('${b.id}')">📄 Itinerary</button>
+            <button class="btn success" style="font-size:10px;padding:2px 6px" onclick="openInvoiceModal('${b.id}')">🧾 Invoice</button>
           </td>
         </tr>`;
       }).join('')}
-    </tbody></table>
-  </div>`;
+    </tbody></table></div>`;
 }
+window.updateBkStatus=async(id,status)=>{await sb.from('bookings').update({status}).eq('id',id);toast('Status updated');};
 
-window.updateBkStatus = async (id, status) => {
-  await sb.from('bookings').update({status}).eq('id',id); toast('Status updated');
-};
-
-// ── ITINERARY BUILDER ──
-function vItinerary() {
-  return `
-  <div class="grid-2">
-    <div class="card">
-      <div class="section-header"><h3>Itineraries</h3><button class="btn primary" onclick="openModal('modal-itinerary')">+ New</button></div>
+// ── ITINERARY ──
+function vItinerary(){
+  return `<div class="grid-2">
+    <div class="card"><div class="section-header"><h3>Itineraries</h3><button class="btn primary" onclick="openModal('modal-itinerary')">+ New</button></div>
       ${cache.itineraries.length===0?'<p style="color:var(--text3);font-size:13px">No itineraries yet.</p>':''}
       ${cache.itineraries.map(it=>{
-        const nights=nightsBetween(it.start_date,it.end_date);
+        const n=nights(it.start_date,it.end_date);
+        const ctLabel={nonresident:'Non-Resident',resident:'Resident',citizen:'Citizen'}[it.client_type]||'Non-Resident';
         return `<div style="display:flex;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid var(--border)">
-          <div style="flex:1">
-            <div style="font-size:13px;font-weight:600">${it.name}</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">${it.client_name||'No client'} · ${nights} nights · ${fmtDate(it.start_date)} → ${fmtDate(it.end_date)}</div>
-            <div style="font-size:11px;color:var(--text3)">${it.destination||''} · <span class="badge ${it.status}" style="font-size:10px">${it.status}</span></div>
+          <div style="flex:1"><div style="font-size:13px;font-weight:600">${it.name}</div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">${it.client_name||'—'} · ${n} nights · ${fmtDate(it.start_date)} → ${fmtDate(it.end_date)}</div>
+            <div style="font-size:11px;color:var(--text3)">${it.destination||''} · <span class="badge ${it.status}" style="font-size:10px">${it.status}</span> · ${ctLabel}</div>
           </div>
           <div style="display:flex;gap:5px;flex-shrink:0;margin-left:8px">
-            <button class="btn" style="font-size:10px;padding:2px 7px" onclick="viewItinerary('${it.id}')">Edit</button>
-            <button class="btn info" style="font-size:10px;padding:2px 7px" onclick="downloadItinerary('${it.id}')">⬇ Share</button>
-            <button class="btn danger" style="font-size:10px;padding:2px 7px" onclick="deleteItinerary('${it.id}')">✕</button>
+            <button class="btn" style="font-size:10px;padding:2px 6px" onclick="viewItinerary('${it.id}')">Edit</button>
+            <button class="btn info" style="font-size:10px;padding:2px 6px" onclick="downloadItinerary('${it.id}')">⬇ Share</button>
+            <button class="btn danger" style="font-size:10px;padding:2px 6px" onclick="deleteIt('${it.id}')">✕</button>
           </div>
         </div>`;
       }).join('')}
@@ -666,453 +562,370 @@ function vItinerary() {
     <div class="card" id="it-detail"><p style="color:var(--text3);font-size:13px">Select an itinerary to build day-by-day details.</p></div>
   </div>`;
 }
-
-window.viewItinerary = (id) => {
-  const it = cache.itineraries.find(x=>x.id===id);
-  if(!it)return;
-  const days = it.days_json?JSON.parse(it.days_json):[];
-  const nights = nightsBetween(it.start_date,it.end_date);
-  document.getElementById('it-detail').innerHTML = `
-    <div class="section-header">
-      <h3>${it.name}</h3>
-      <div style="display:flex;gap:5px">
-        <button class="btn" style="font-size:11px" onclick="addDay('${it.id}')">+ Day</button>
-        <button class="btn info" style="font-size:11px" onclick="downloadItinerary('${it.id}')">⬇ Download</button>
+window.viewItinerary=(id)=>{
+  const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
+  const days=it.days_json?JSON.parse(it.days_json):[];
+  const n=nights(it.start_date,it.end_date);
+  document.getElementById('it-detail').innerHTML=`
+    <div class="section-header"><h3>${it.name}</h3>
+      <div style="display:flex;gap:5px"><button class="btn" style="font-size:11px" onclick="addDay('${it.id}')">+ Day</button><button class="btn info" style="font-size:11px" onclick="downloadItinerary('${it.id}')">⬇ Download</button></div></div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:12px">${fmtDate(it.start_date)} → ${fmtDate(it.end_date)} · ${n} nights · ${it.pax||1} pax · ${it.destination||''}</div>
+    ${days.length===0?'<p style="font-size:12px;color:var(--text3);margin-bottom:12px">No days yet. Click + Day.</p>':''}
+    ${days.map((d,i)=>`<div style="display:flex;gap:10px;margin-bottom:10px;padding:10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg2);align-items:flex-start">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">D${d.day}</div>
+      <div style="flex:1"><div style="font-size:12.5px;font-weight:600">${d.title}</div>
+        ${d.lodge?`<div style="font-size:11px;color:var(--text3)">🏕 ${d.lodge}</div>`:''}
+        ${d.meals?`<div style="font-size:11px;color:var(--text3)">🍽 ${d.meals}</div>`:''}
+        ${(d.activities||[]).map(a=>`<div style="font-size:11px;color:var(--text2)">· ${a}</div>`).join('')}
       </div>
-    </div>
-    <div style="font-size:12px;color:var(--text2);margin-bottom:12px">
-      ${fmtDate(it.start_date)} → ${fmtDate(it.end_date)} · ${nights} nights · ${it.pax||1} pax · ${it.destination||''}
-    </div>
-    ${days.length===0?'<p style="font-size:12px;color:var(--text3);margin-bottom:12px">No days yet. Click + Day to build the itinerary.</p>':''}
-    ${days.map((d,i)=>`
-      <div style="display:flex;gap:10px;margin-bottom:12px;align-items:flex-start;padding:10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg2)">
-        <div style="width:28px;height:28px;border-radius:50%;background:#c8893a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">D${d.day}</div>
-        <div style="flex:1">
-          <div style="font-size:12.5px;font-weight:600;margin-bottom:2px">${d.title}</div>
-          ${d.lodge?`<div style="font-size:11px;color:var(--text3)">🏕 ${d.lodge}</div>`:''}
-          ${d.meals?`<div style="font-size:11px;color:var(--text3)">🍽 ${d.meals}</div>`:''}
-          ${(d.activities||[]).map(a=>`<div style="font-size:11px;color:var(--text2)">· ${a}</div>`).join('')}
-        </div>
-        <button class="btn danger" style="font-size:10px;padding:2px 6px" onclick="removeDay('${it.id}',${i})">✕</button>
-      </div>`).join('')}
+      <button class="btn danger" style="font-size:10px;padding:2px 6px" onclick="removeDay('${it.id}',${i})">✕</button>
+    </div>`).join('')}
     <div style="border:0.5px dashed var(--border2);border-radius:var(--radius);padding:12px;margin-top:6px">
       <div style="font-size:12px;font-weight:600;margin-bottom:8px;color:var(--text2)">Add next day</div>
       <div class="r2" style="margin-bottom:8px">
-        <div class="form-group" style="margin:0"><label>Day Title</label><input type="text" id="new-day-title" placeholder="e.g. Mara Game Drive"/></div>
-        <div class="form-group" style="margin:0"><label>Lodge / Camp</label><input type="text" id="new-day-lodge" placeholder="e.g. Mara Serena Lodge"/></div>
+        <div class="form-group" style="margin:0"><label>Day Title</label><input type="text" id="nd-title" placeholder="e.g. Mara Game Drive"/></div>
+        <div class="form-group" style="margin:0"><label>Lodge / Camp</label><input type="text" id="nd-lodge"/></div>
       </div>
       <div class="r2" style="margin-bottom:8px">
-        <div class="form-group" style="margin:0"><label>Meals Included</label><input type="text" id="new-day-meals" placeholder="e.g. Breakfast, Lunch, Dinner"/></div>
-        <div class="form-group" style="margin:0"><label>Activity</label><input type="text" id="new-day-activity" placeholder="e.g. Morning game drive"/></div>
+        <div class="form-group" style="margin:0"><label>Meals</label><input type="text" id="nd-meals" placeholder="Breakfast, Lunch, Dinner"/></div>
+        <div class="form-group" style="margin:0"><label>Activity</label><input type="text" id="nd-act" placeholder="e.g. Morning game drive"/></div>
       </div>
       <button class="btn primary" style="font-size:12px" onclick="addDayDetail('${it.id}')">Add Day</button>
     </div>`;
 };
-
-window.addDay = (id) => { viewItinerary(id); };
-
-window.addDayDetail = async (id) => {
-  const title = document.getElementById('new-day-title')?.value?.trim();
-  if(!title){toast('Day title required','error');return;}
-  const lodge = document.getElementById('new-day-lodge')?.value?.trim();
-  const meals = document.getElementById('new-day-meals')?.value?.trim();
-  const activity = document.getElementById('new-day-activity')?.value?.trim();
-  const it = cache.itineraries.find(x=>x.id===id);
-  if(!it)return;
-  const days = it.days_json?JSON.parse(it.days_json):[];
-  days.push({day:days.length+1,title,lodge,meals,activities:activity?[activity]:[]});
-  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id);
-  toast('Day added');
+window.addDay=(id)=>viewItinerary(id);
+window.addDayDetail=async(id)=>{
+  const title=document.getElementById('nd-title')?.value?.trim(); if(!title){toast('Title required','error');return;}
+  const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
+  const days=it.days_json?JSON.parse(it.days_json):[];
+  const lodge=document.getElementById('nd-lodge')?.value?.trim();
+  const meals=document.getElementById('nd-meals')?.value?.trim();
+  const act=document.getElementById('nd-act')?.value?.trim();
+  days.push({day:days.length+1,title,lodge,meals,activities:act?[act]:[]});
+  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id); toast('Day added');
 };
-
-window.removeDay = async (id, idx) => {
-  const it = cache.itineraries.find(x=>x.id===id);
-  if(!it)return;
-  const days = it.days_json?JSON.parse(it.days_json):[];
-  days.splice(idx,1);
-  days.forEach((d,i)=>d.day=i+1);
-  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id);
-  toast('Day removed');
+window.removeDay=async(id,idx)=>{
+  const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
+  const days=it.days_json?JSON.parse(it.days_json):[];
+  days.splice(idx,1); days.forEach((d,i)=>d.day=i+1);
+  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id); toast('Day removed');
 };
+window.deleteIt=async(id)=>{if(!confirm('Delete itinerary?'))return;await sb.from('itineraries').delete().eq('id',id);toast('Deleted');};
 
-window.deleteItinerary = async (id) => {
-  if(!confirm('Delete this itinerary?'))return;
-  await sb.from('itineraries').delete().eq('id',id); toast('Deleted');
-};
-
-// ── DOWNLOAD ITINERARY (Wetu/TourPlan style) ──
-window.downloadItinerary = (id) => {
-  const it = cache.itineraries.find(x=>x.id===id);
-  if(!it){toast('Itinerary not found','error');return;}
-  const days = it.days_json?JSON.parse(it.days_json):[];
-  const nights = nightsBetween(it.start_date,it.end_date);
-  const totalPrice = (it.price_per_person||0)*(it.pax||1);
-
-  const dayColors = ['#c8893a','#2d6a4f','#1a5276','#6c3483','#117a65','#784212','#1b4f72'];
-  const daysHtml = days.map((d,i)=>`
+// ── DOWNLOAD ITINERARY ──
+window.downloadItinerary=(id)=>{
+  const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
+  const days=it.days_json?JSON.parse(it.days_json):[];
+  const n=nights(it.start_date,it.end_date);
+  const total=(it.price_per_person||0)*(it.pax||1);
+  const isKES=it.client_type==='resident'||it.client_type==='citizen';
+  const priceDisplay=isKES?'Ksh '+(Math.round(it.price_per_person||0)).toLocaleString():'$'+(it.price_per_person||0).toLocaleString();
+  const totalDisplay=isKES?'Ksh '+(Math.round(total)).toLocaleString():'$'+total.toLocaleString();
+  const ctLabel={nonresident:'Non-Resident / International',resident:'Resident',citizen:'Citizen'}[it.client_type]||'Non-Resident';
+  const cols=['#c8893a','#2d6a4f','#1a5276','#6c3483','#117a65','#784212','#1b4f72'];
+  const daysHtml=days.map((d,i)=>`
     <div style="margin-bottom:28px;page-break-inside:avoid">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-        <div style="width:44px;height:44px;border-radius:50%;background:${dayColors[i%dayColors.length]};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">D${d.day}</div>
-        <div>
-          <div style="font-size:16px;font-weight:700;color:#1a1a18">${d.title}</div>
-          ${d.lodge?`<div style="font-size:12px;color:#6b6a64;margin-top:2px">🏕 ${d.lodge}</div>`:''}
-        </div>
+        <div style="width:44px;height:44px;border-radius:50%;background:${cols[i%cols.length]};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">D${d.day}</div>
+        <div><div style="font-size:16px;font-weight:700">${d.title}</div>${d.lodge?`<div style="font-size:12px;color:#6b6a64">🏕 ${d.lodge}</div>`:''}</div>
       </div>
       ${d.meals?`<div style="background:#fdf6ee;border-left:3px solid #c8893a;padding:6px 10px;border-radius:0 6px 6px 0;font-size:12px;color:#633806;margin-bottom:8px">🍽 <strong>Meals:</strong> ${d.meals}</div>`:''}
-      ${(d.activities||[]).length>0?`
-        <ul style="padding-left:18px;margin:0">
-          ${d.activities.map(a=>`<li style="font-size:13px;color:#2d2d2b;margin-bottom:4px">${a}</li>`).join('')}
-        </ul>`:''}
+      ${(d.activities||[]).length>0?`<ul style="padding-left:18px">${d.activities.map(a=>`<li style="font-size:13px;color:#2d2d2b;margin-bottom:4px">${a}</li>`).join('')}</ul>`:''}
     </div>`).join('');
-
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
-  <title>${it.name} — Safari Itinerary</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Georgia',serif;background:#fff;color:#1a1a18;line-height:1.6}
-    @media print{body{margin:0}.no-print{display:none!important}@page{margin:15mm}}
-  </style></head><body>
-
-  <!-- HERO -->
-  <div style="background:linear-gradient(135deg,#1a3a2a 0%,#2d6a4f 50%,#c8893a 100%);color:#fff;padding:48px 40px;text-align:center">
-    <div style="font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.8;margin-bottom:8px">Safari Itinerary</div>
-    <h1 style="font-size:32px;font-weight:700;margin-bottom:8px">${it.name}</h1>
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>${it.name}</title>
+  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:#fff;color:#1a1a18;line-height:1.6}@media print{.np{display:none!important}@page{margin:15mm}}</style></head><body>
+  <div style="background:linear-gradient(135deg,#1a3a2a 0%,#2d6a4f 55%,#c8893a 100%);color:#fff;padding:48px 40px;text-align:center">
+    <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.8;margin-bottom:8px">Safari Itinerary · ${ctLabel}</div>
+    <h1 style="font-size:30px;font-weight:700;margin-bottom:6px">${it.name}</h1>
     <div style="font-size:15px;opacity:.9">${it.destination||''}</div>
-    <div style="margin-top:24px;display:inline-flex;gap:32px;background:rgba(255,255,255,.15);border-radius:10px;padding:16px 28px">
-      <div style="text-align:center"><div style="font-size:11px;opacity:.7;letter-spacing:.08em">CLIENT</div><div style="font-size:15px;font-weight:600;margin-top:3px">${it.client_name||'—'}</div></div>
-      <div style="text-align:center"><div style="font-size:11px;opacity:.7;letter-spacing:.08em">START</div><div style="font-size:15px;font-weight:600;margin-top:3px">${fmtDate(it.start_date)}</div></div>
-      <div style="text-align:center"><div style="font-size:11px;opacity:.7;letter-spacing:.08em">END</div><div style="font-size:15px;font-weight:600;margin-top:3px">${fmtDate(it.end_date)}</div></div>
-      <div style="text-align:center"><div style="font-size:11px;opacity:.7;letter-spacing:.08em">NIGHTS</div><div style="font-size:15px;font-weight:600;margin-top:3px">${nights}</div></div>
-      <div style="text-align:center"><div style="font-size:11px;opacity:.7;letter-spacing:.08em">PAX</div><div style="font-size:15px;font-weight:600;margin-top:3px">${it.pax||1}</div></div>
-    </div>
-  </div>
-
-  <!-- OVERVIEW -->
-  ${it.intro?`<div style="background:#f9f7f4;padding:28px 40px;border-bottom:1px solid #e8e6e0">
-    <h2 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:10px">Overview</h2>
-    <p style="font-size:14px;color:#4a4a48;line-height:1.7">${it.intro}</p>
-  </div>`:''}
-
-  <!-- QUICK OVERVIEW TABLE -->
-  <div style="padding:28px 40px;border-bottom:1px solid #e8e6e0">
-    <h2 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:14px">At a Glance</h2>
-    <table style="width:100%;border-collapse:collapse;font-size:13px">
-      <thead><tr style="background:#1a3a2a;color:#fff">
-        <th style="padding:10px 14px;text-align:left;font-weight:600;border-radius:6px 0 0 0">Day</th>
-        <th style="padding:10px 14px;text-align:left;font-weight:600">Destination</th>
-        <th style="padding:10px 14px;text-align:left;font-weight:600">Accommodation</th>
-        <th style="padding:10px 14px;text-align:left;font-weight:600;border-radius:0 6px 0 0">Meals</th>
-      </tr></thead>
-      <tbody>
-        ${days.map((d,i)=>`<tr style="background:${i%2===0?'#fff':'#f9f7f4'}">
-          <td style="padding:8px 14px;font-weight:600;color:#c8893a">Day ${d.day}</td>
-          <td style="padding:8px 14px">${d.title}</td>
-          <td style="padding:8px 14px">${d.lodge||'—'}</td>
-          <td style="padding:8px 14px">${d.meals||'—'}</td>
-        </tr>`).join('')}
-      </tbody>
-    </table>
-  </div>
-
-  <!-- DAY BY DAY -->
-  <div style="padding:28px 40px">
-    <h2 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:20px">Detailed Itinerary</h2>
-    ${daysHtml}
-  </div>
-
-  <!-- INCLUSIONS -->
-  <div style="background:#1a3a2a;color:#fff;padding:28px 40px">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div>
-        <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">What's Included</h3>
-        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9">
-          <li>All game drives as per itinerary</li>
-          <li>Full board accommodation</li>
-          <li>Park and conservation fees</li>
-          <li>Airport / airstrip transfers</li>
-          <li>Services of English-speaking guide</li>
-          <li>Flying doctors emergency evacuation cover</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">What's Not Included</h3>
-        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9">
-          <li>International flights</li>
-          <li>Travel insurance</li>
-          <li>Visa fees</li>
-          <li>Personal expenses & tips</li>
-          <li>Optional activities</li>
-          <li>Items of a personal nature</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- PRICING -->
-  ${it.price_per_person?`<div style="background:#f9f7f4;padding:28px 40px;border-top:1px solid #e8e6e0">
-    <h2 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:14px">Pricing</h2>
-    <table style="font-size:14px;border-collapse:collapse">
-      <tr><td style="padding:6px 24px 6px 0;color:#6b6a64">Price per person</td><td style="font-weight:700">$${parseInt(it.price_per_person).toLocaleString()}</td></tr>
-      <tr><td style="padding:6px 24px 6px 0;color:#6b6a64">Number of guests</td><td style="font-weight:700">${it.pax||1}</td></tr>
-      <tr style="border-top:1px solid #e8e6e0"><td style="padding:10px 24px 0 0;font-weight:700;font-size:16px">Total</td><td style="font-weight:700;font-size:20px;color:#1a3a2a">$${totalPrice.toLocaleString()}</td></tr>
-    </table>
-  </div>`:''}
-
-  <!-- FOOTER -->
-  <div style="background:#111;color:#aaa;padding:20px 40px;text-align:center;font-size:12px">
-    <div style="font-weight:600;color:#fff;margin-bottom:4px">Safari Workflow — Operations Platform</div>
-    <div>This itinerary is confidential and prepared exclusively for ${it.client_name||'the client'}.</div>
-    <div style="margin-top:4px">Generated on ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}</div>
-  </div>
-
-  <div class="no-print" style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px">
-    <button onclick="window.print()" style="padding:10px 20px;background:#c8893a;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600">🖨 Print / Save PDF</button>
-    <button onclick="window.close()" style="padding:10px 20px;background:#333;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">Close</button>
-  </div>
-
-  </body></html>`;
-
-  const w = window.open('','_blank');
-  w.document.write(html);
-  w.document.close();
-};
-
-// ── GENERATE ITINERARY FROM BOOKING ──
-window.generateItineraryDoc = (id) => {
-  const b = cache.bookings.find(x=>x.id===id);
-  if(!b){toast('Booking not found','error');return;}
-  const nights = nightsBetween(b.start_date,b.end_date);
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
-  <title>${b.tour_name} — Safari Itinerary</title>
-  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:#fff;color:#1a1a18;line-height:1.6}@media print{.no-print{display:none!important}@page{margin:15mm}}</style></head><body>
-  <div style="background:linear-gradient(135deg,#1a3a2a 0%,#2d6a4f 60%,#c8893a 100%);color:#fff;padding:48px 40px;text-align:center">
-    <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.8;margin-bottom:8px">Safari Itinerary</div>
-    <h1 style="font-size:30px;font-weight:700;margin-bottom:8px">${b.tour_name||'Safari Package'}</h1>
     <div style="margin-top:24px;display:inline-flex;gap:28px;background:rgba(255,255,255,.15);border-radius:10px;padding:16px 28px">
-      <div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">CLIENT</div><div style="font-size:14px;font-weight:600;margin-top:3px">${b.client_name}</div></div>
-      <div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">START</div><div style="font-size:14px;font-weight:600;margin-top:3px">${fmtDate(b.start_date)}</div></div>
-      <div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">END</div><div style="font-size:14px;font-weight:600;margin-top:3px">${fmtDate(b.end_date)}</div></div>
-      <div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">NIGHTS</div><div style="font-size:14px;font-weight:600;margin-top:3px">${nights}</div></div>
-      <div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">PAX</div><div style="font-size:14px;font-weight:600;margin-top:3px">${b.passengers||1}</div></div>
+      ${[['CLIENT',it.client_name||'—'],['TYPE',ctLabel],['START',fmtDate(it.start_date)],['END',fmtDate(it.end_date)],['NIGHTS',''+n],['PAX',''+( it.pax||1)]].map(([k,v])=>`<div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">${k}</div><div style="font-size:14px;font-weight:600;margin-top:3px">${v}</div></div>`).join('')}
     </div>
   </div>
-  <div style="padding:32px 40px;background:#f9f7f4">
-    <p style="font-size:14px;color:#4a4a48;line-height:1.7">Dear <strong>${b.client_name}</strong>, thank you for booking your safari with us. Please find your detailed itinerary below. Your guide <strong>${b.guide_name||'(to be confirmed)'}</strong> will meet you on arrival.</p>
-  </div>
-  <div style="padding:32px 40px">
-    <h2 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:16px">Booking Details</h2>
+  ${it.intro?`<div style="background:#f9f7f4;padding:28px 40px;border-bottom:1px solid #e8e6e0"><h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:10px">Overview</h2><p style="font-size:14px;color:#4a4a48;line-height:1.7">${it.intro}</p></div>`:''}
+  <div style="padding:28px 40px;border-bottom:1px solid #e8e6e0">
+    <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:14px">At a Glance</h2>
     <table style="width:100%;border-collapse:collapse;font-size:13px">
-      <tr style="background:#f9f7f4"><td style="padding:10px 16px;color:#6b6a64;width:40%">Accommodation</td><td style="padding:10px 16px;font-weight:600">${b.hotel||'—'}</td></tr>
-      <tr><td style="padding:10px 16px;color:#6b6a64">Guide</td><td style="padding:10px 16px;font-weight:600">${b.guide_name||'—'}</td></tr>
-      <tr style="background:#f9f7f4"><td style="padding:10px 16px;color:#6b6a64">Number of Guests</td><td style="padding:10px 16px;font-weight:600">${b.passengers||1}</td></tr>
-      <tr><td style="padding:10px 16px;color:#6b6a64">Duration</td><td style="padding:10px 16px;font-weight:600">${nights} nights</td></tr>
+      <thead><tr style="background:#1a3a2a;color:#fff"><th style="padding:10px 14px;text-align:left">Day</th><th style="padding:10px 14px;text-align:left">Destination</th><th style="padding:10px 14px;text-align:left">Accommodation</th><th style="padding:10px 14px;text-align:left">Meals</th></tr></thead>
+      <tbody>${days.map((d,i)=>`<tr style="background:${i%2===0?'#fff':'#f9f7f4'}"><td style="padding:8px 14px;font-weight:600;color:#c8893a">Day ${d.day}</td><td style="padding:8px 14px">${d.title}</td><td style="padding:8px 14px">${d.lodge||'—'}</td><td style="padding:8px 14px">${d.meals||'—'}</td></tr>`).join('')}</tbody>
     </table>
   </div>
+  <div style="padding:28px 40px"><h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:20px">Detailed Day-by-Day</h2>${daysHtml}</div>
   <div style="background:#1a3a2a;color:#fff;padding:28px 40px">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;color:#c8893a">Included</h3>
-        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>All game drives</li><li>Full board accommodation</li><li>Park fees</li><li>Airport transfers</li><li>Professional guide</li></ul></div>
-      <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;color:#c8893a">Not Included</h3>
-        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>International flights</li><li>Travel insurance</li><li>Visa fees</li><li>Tips & gratuities</li><li>Personal expenses</li></ul></div>
+      <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">Included</h3>
+        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>All game drives per itinerary</li><li>Full board accommodation</li><li>Park & conservation fees</li><li>Airport/airstrip transfers</li><li>English-speaking guide</li><li>Flying doctors cover</li></ul></div>
+      <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">Not Included</h3>
+        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>International flights</li><li>Travel insurance</li><li>Visa fees</li><li>Personal expenses & tips</li><li>Optional activities</li></ul></div>
     </div>
   </div>
+  ${it.price_per_person?`<div style="background:#f9f7f4;padding:28px 40px;border-top:1px solid #e8e6e0">
+    <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:14px">Pricing (${ctLabel})</h2>
+    <table style="font-size:14px;border-collapse:collapse">
+      <tr><td style="padding:6px 24px 6px 0;color:#6b6a64">Price per person</td><td style="font-weight:700">${priceDisplay}</td></tr>
+      <tr><td style="padding:6px 24px 6px 0;color:#6b6a64">Guests</td><td style="font-weight:700">${it.pax||1}</td></tr>
+      <tr style="border-top:1px solid #e8e6e0"><td style="padding:10px 24px 0 0;font-weight:700;font-size:16px">Total</td><td style="font-weight:700;font-size:20px;color:#1a3a2a">${totalDisplay}</td></tr>
+    </table>
+  </div>`:''}
   <div style="background:#111;color:#aaa;padding:18px 40px;text-align:center;font-size:12px">
     <div style="font-weight:600;color:#fff;margin-bottom:3px">Safari Workflow · Operations Platform</div>
-    <div>Generated ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}</div>
+    <div>Prepared exclusively for ${it.client_name||'the client'} · Generated ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}</div>
   </div>
-  <div class="no-print" style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px">
+  <div class="np" style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px">
     <button onclick="window.print()" style="padding:10px 20px;background:#c8893a;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600">🖨 Print / Save PDF</button>
     <button onclick="window.close()" style="padding:10px 20px;background:#333;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">Close</button>
-  </div>
-  </body></html>`;
+  </div></body></html>`;
   const w=window.open('','_blank'); w.document.write(html); w.document.close();
 };
 
-// ── PROFORMA INVOICE MODAL ──
-let _invoiceBookingId = null;
+// ── ITINERARY FROM BOOKING ──
+window.genItineraryDoc=(id)=>{
+  const b=cache.bookings.find(x=>x.id===id); if(!b)return;
+  const n=nights(b.start_date,b.end_date);
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>${b.tour_name}</title>
+  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:#fff;color:#1a1a18;line-height:1.6}@media print{.np{display:none!important}@page{margin:15mm}}</style></head><body>
+  <div style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f 55%,#c8893a);color:#fff;padding:48px 40px;text-align:center">
+    <div style="font-size:11px;letter-spacing:.15em;opacity:.8;margin-bottom:8px">SAFARI ITINERARY</div>
+    <h1 style="font-size:28px;font-weight:700;margin-bottom:6px">${b.tour_name||'Safari'}</h1>
+    <div style="margin-top:24px;display:inline-flex;gap:28px;background:rgba(255,255,255,.15);border-radius:10px;padding:16px 28px">
+      ${[['CLIENT',b.client_name],['START',fmtDate(b.start_date)],['END',fmtDate(b.end_date)],['NIGHTS',''+n],['PAX',''+( b.passengers||1)]].map(([k,v])=>`<div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">${k}</div><div style="font-size:14px;font-weight:600;margin-top:3px">${v}</div></div>`).join('')}
+    </div>
+  </div>
+  <div style="padding:32px 40px"><p style="font-size:14px;color:#4a4a48;line-height:1.7">Dear <strong>${b.client_name}</strong>, thank you for your booking. Your guide <strong>${b.guide_name||'(to be confirmed)'}</strong> will meet you on arrival.</p></div>
+  <div style="padding:0 40px 32px"><table style="width:100%;border-collapse:collapse;font-size:13px">
+    ${[['Accommodation',b.hotel||'—'],['Guide',b.guide_name||'—'],['Guests',''+( b.passengers||1)],['Duration',n+' nights']].map(([k,v],i)=>`<tr style="background:${i%2===0?'#f9f7f4':'#fff'}"><td style="padding:10px 16px;color:#6b6a64;width:40%">${k}</td><td style="padding:10px 16px;font-weight:600">${v}</td></tr>`).join('')}
+  </table></div>
+  <div style="background:#111;color:#aaa;padding:16px 40px;text-align:center;font-size:12px">Safari Workflow · Generated ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}</div>
+  <div class="np" style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px">
+    <button onclick="window.print()" style="padding:10px 20px;background:#c8893a;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600">🖨 Print / Save PDF</button>
+    <button onclick="window.close()" style="padding:10px 20px;background:#333;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">Close</button>
+  </div></body></html>`;
+  const w=window.open('','_blank'); w.document.write(html); w.document.close();
+};
 
-window.openInvoiceModal = (id) => {
-  const b = cache.bookings.find(x=>x.id===id);
-  if(!b){toast('Booking not found','error');return;}
-  _invoiceBookingId = id;
-  const nights = nightsBetween(b.start_date,b.end_date);
-  const pax = b.passengers||1;
-  document.getElementById('inv-booking-info').innerHTML =
-    '<strong>'+b.client_name+'</strong> — '+(b.tour_name||'')+' &nbsp;·&nbsp; '+fmtDate(b.start_date)+' → '+fmtDate(b.end_date)+' &nbsp;·&nbsp; '+nights+' nights &nbsp;·&nbsp; '+pax+' pax';
-  document.getElementById('inv-vehicle-days').value = nights||'';
-  document.getElementById('inv-accom-nights').value = nights||'';
-  document.getElementById('inv-meals-days').value = nights||'';
-  document.getElementById('inv-park-days').value = nights||'';
-  document.getElementById('inv-vehicle-pax').value = pax;
-  document.getElementById('inv-total-pax').value = pax;
-  document.getElementById('inv-markup').value = 15;
-  ['inv-vehicle-rate','inv-accom-rate','inv-park-rate','inv-meals-rate','inv-activities','inv-flights','inv-sgr','inv-empty-run','inv-other-amount'].forEach(function(eid){var el=document.getElementById(eid);if(el)el.value='';});
-  document.getElementById('inv-summary').style.display='none';
+// ── INVOICE MODAL ──
+window.setCurType=(type)=>{
+  _curType=type;
+  ['nonresident','resident','citizen'].forEach(t=>{
+    document.getElementById('btn-'+t).classList.toggle('active',t===type);
+  });
+  const isKES=type==='resident'||type==='citizen';
+  const sym=isKES?'Ksh':'$';
+  const fxRow=document.getElementById('inv-fx-row');
+  if(fxRow) fxRow.style.display=isKES?'block':'none';
+  const noteEl=document.getElementById('inv-cur-note');
+  const notes={
+    nonresident:'💵 <strong>Non-Resident:</strong> All costs in <strong>USD ($)</strong>. Non-resident park fees apply. Invoice issued in USD.',
+    resident:`🇰🇪 <strong>Resident:</strong> All costs in <strong>KES (Ksh)</strong>. Resident park rates apply. Enter amounts in Ksh. Use FX rate to convert any USD costs.`,
+    citizen:`🏠 <strong>Citizen:</strong> All costs in <strong>KES (Ksh)</strong>. Citizen/local park rates apply (lowest tier). Enter amounts in Ksh.`,
+  };
+  if(noteEl) noteEl.innerHTML=notes[type];
+  const hdr=document.getElementById('inv-cost-hdr');
+  if(hdr) hdr.textContent=`Step 2 — Enter cost components per person (${sym})`;
+  ['lv','la','lp','lm','lact','lfl','lsgr','ler'].forEach(lid=>{
+    const el=document.getElementById(lid); if(!el)return;
+    el.textContent=el.textContent.replace(/\(\$\)|\(Ksh\)/,'')+'('+sym+')';
+  });
+  recalc();
+};
+
+window.openInvoiceModal=(id)=>{
+  const b=cache.bookings.find(x=>x.id===id); if(!b)return;
+  _invBkId=id;
+  const n=nights(b.start_date,b.end_date);
+  const pax=b.passengers||1;
+  const infoEl=document.getElementById('inv-bk-info');
+  if(infoEl) infoEl.innerHTML=`<strong>${b.client_name}</strong> — ${b.tour_name||''} &nbsp;·&nbsp; ${fmtDate(b.start_date)} → ${fmtDate(b.end_date)} &nbsp;·&nbsp; ${n} nights &nbsp;·&nbsp; ${pax} pax`;
+  ['iv-vrate','iv-arate','iv-prate','iv-mrate','iv-act','iv-flights','iv-sgr','iv-erun','iv-oamt'].forEach(eid=>{const el=document.getElementById(eid);if(el)el.value='';});
+  const setVal=(eid,v)=>{const el=document.getElementById(eid);if(el)el.value=v;};
+  setVal('iv-vdays',n||''); setVal('iv-anights',n||''); setVal('iv-mdays',n||'');
+  setVal('iv-pdays',n||''); setVal('iv-vpax',pax); setVal('iv-tpax',pax);
+  setVal('iv-markup',15); setVal('iv-fx',129);
+  const sumEl=document.getElementById('inv-summary');
+  if(sumEl) sumEl.style.display='none';
+  setCurType('nonresident');
   openModal('modal-invoice');
 };
 
-window.recalcInvoice = () => {
-  const v = (eid) => parseFloat(document.getElementById(eid)?.value)||0;
-  const transport = v('inv-vehicle-pax')>0 ? v('inv-vehicle-rate')*v('inv-vehicle-days')/v('inv-vehicle-pax') : 0;
-  const accom    = v('inv-accom-rate')*v('inv-accom-nights');
-  const park     = v('inv-park-rate')*v('inv-park-days');
-  const meals    = v('inv-meals-rate')*v('inv-meals-days');
-  const activ    = v('inv-activities');
-  const flights  = v('inv-flights');
-  const sgr      = v('inv-sgr');
-  const erun     = v('inv-empty-run');
-  const other    = v('inv-other-amount');
-  const sub      = transport+accom+park+meals+activ+flights+sgr+erun+other;
-  const mkup     = sub*(v('inv-markup')/100);
-  const perPax   = sub+mkup;
-  const grand    = perPax*Math.max(v('inv-total-pax'),1);
-  const f = (n) => n>0?'$'+n.toFixed(2):'';
-  const setR = (eid,txt) => { const el=document.getElementById(eid); if(el)el.textContent=txt; };
-  setR('inv-transport-result', transport>0?'Per person: '+f(transport)+' (vehicle cost ÷ people)':'');
-  setR('inv-accom-result',     accom>0?'Per person: '+f(accom):'');
-  setR('inv-park-result',      park>0?'Per person: '+f(park):'');
-  setR('inv-meals-result',     meals>0?'Per person: '+f(meals):'');
+window.recalc=()=>{
+  const v=(eid)=>parseFloat(document.getElementById(eid)?.value)||0;
+  const isKES=_curType==='resident'||_curType==='citizen';
+  const sym=isKES?'Ksh':'$';
+  const fx=v('inv-fx')||129;
+  const fmt=(n)=>{
+    if(n<=0)return'';
+    if(isKES)return'Ksh '+Math.round(n).toLocaleString();
+    return'$'+n.toFixed(2);
+  };
+  const transport=v('iv-vpax')>0?v('iv-vrate')*v('iv-vdays')/v('iv-vpax'):0;
+  const accom=v('iv-arate')*v('iv-anights');
+  const park=v('iv-prate')*v('iv-pdays');
+  const meals=v('iv-mrate')*v('iv-mdays');
+  const act=v('iv-act'), fl=v('iv-flights'), sgr=v('iv-sgr'), er=v('iv-erun'), oth=v('iv-oamt');
+  const sub=transport+accom+park+meals+act+fl+sgr+er+oth;
+  const mkup=sub*(v('iv-markup')/100);
+  const perPax=sub+mkup;
+  const grand=perPax*Math.max(v('iv-tpax'),1);
+  const setR=(eid,txt)=>{const el=document.getElementById(eid);if(el)el.textContent=txt;};
+  setR('iv-vtrans-res',transport>0?'Per person: '+fmt(transport)+' (vehicle ÷ people)':'');
+  setR('iv-accom-res',accom>0?'Per person: '+fmt(accom):'');
+  setR('iv-park-res',park>0?'Per person: '+fmt(park):'');
+  setR('iv-meals-res',meals>0?'Per person: '+fmt(meals):'');
   if(sub>0){
-    document.getElementById('inv-summary').style.display='block';
-    const row=(icon,lbl,val)=>val>0?'<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid rgba(255,255,255,.12);font-size:13px"><span>'+icon+' '+lbl+'</span><span>'+f(val)+'</span></div>':'';
-    const otherLbl = document.getElementById('inv-other-label')?.value||'Other';
-    document.getElementById('inv-summary-lines').innerHTML =
+    const sumEl=document.getElementById('inv-summary');
+    if(sumEl) sumEl.style.display='block';
+    const row=(icon,lbl,val)=>val>0?`<div class="sum-row"><span>${icon} ${lbl}</span><span>${fmt(val)}</span></div>`:'';
+    const otherLbl=document.getElementById('iv-olabel')?.value||'Other';
+    const linesEl=document.getElementById('inv-sum-lines');
+    if(linesEl) linesEl.innerHTML=
       row('🚙','Transport (per person)',transport)+
       row('🏕','Accommodation (per person)',accom)+
       row('🌿','Park fees (per person)',park)+
       row('🍽','Meals & drinks (per person)',meals)+
-      row('🎯','Activities (per person)',activ)+
-      row('✈','Domestic flights (per person)',flights)+
+      row('🎯','Activities (per person)',act)+
+      row('✈','Domestic flights (per person)',fl)+
       row('🚆','SGR / Train (per person)',sgr)+
-      row('🔄','Empty run / Positioning (per person)',erun)+
-      (other>0?'<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid rgba(255,255,255,.12);font-size:13px"><span>➕ '+otherLbl+'</span><span>'+f(other)+'</span></div>':'')+
-      (mkup>0?'<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid rgba(255,255,255,.12);font-size:13px"><span>📈 Markup ('+v('inv-markup')+'%)</span><span>'+f(mkup)+'</span></div>':'')+
-      '<div style="display:flex;justify-content:space-between;padding:8px 0 3px;font-weight:700;font-size:14px"><span>💰 Cost per person</span><span style="color:#f0c070">'+f(perPax)+'</span></div>'+
-      '<div style="display:flex;justify-content:space-between;padding:3px 0;font-weight:700;font-size:15px"><span>👥 Grand total ('+Math.max(v('inv-total-pax'),1)+' pax)</span><span style="color:#f0c070">'+f(grand)+'</span></div>';
+      row('🔄','Empty run / Positioning (per person)',er)+
+      (oth>0?`<div class="sum-row"><span>➕ ${otherLbl}</span><span>${fmt(oth)}</span></div>`:'')+
+      (mkup>0?`<div class="sum-row"><span>📈 Markup (${v('iv-markup')}%)</span><span>${fmt(mkup)}</span></div>`:'')+
+      `<div class="sum-total"><span>💰 Cost per person</span><span style="color:#f0c070">${fmt(perPax)}</span></div>`+
+      `<div class="sum-total" style="font-size:16px"><span>👥 Grand total (${Math.max(v('iv-tpax'),1)} guests)</span><span style="color:#f0c070">${fmt(grand)}</span></div>`;
   }
 };
 
-window.generateInvoice = () => {
-  const id = _invoiceBookingId;
-  const b = cache.bookings.find(x=>x.id===id);
-  if(!b){toast('No booking selected','error');return;}
-  const v = (eid) => parseFloat(document.getElementById(eid)?.value)||0;
-  const nights   = nightsBetween(b.start_date,b.end_date);
-  const transport= v('inv-vehicle-pax')>0?v('inv-vehicle-rate')*v('inv-vehicle-days')/v('inv-vehicle-pax'):0;
-  const accom    = v('inv-accom-rate')*v('inv-accom-nights');
-  const park     = v('inv-park-rate')*v('inv-park-days');
-  const meals    = v('inv-meals-rate')*v('inv-meals-days');
-  const activ    = v('inv-activities');
-  const flights  = v('inv-flights');
-  const sgr      = v('inv-sgr');
-  const erun     = v('inv-empty-run');
-  const otherAmt = v('inv-other-amount');
-  const otherLbl = document.getElementById('inv-other-label')?.value||'Other costs';
-  const mkupPct  = v('inv-markup');
-  const totalPax = Math.max(v('inv-total-pax'),1);
-  const sub      = transport+accom+park+meals+activ+flights+sgr+erun+otherAmt;
-  const mkup     = sub*(mkupPct/100);
-  const perPax   = sub+mkup;
-  const grand    = perPax*totalPax;
-  const paid     = b.amount_paid||0;
-  const balance  = grand-paid;
-  const invNum   = 'INV-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
-  const f2=(n)=>n>0?'$'+n.toFixed(2):'—';
-  const trow=(bg,desc,detail,rate,qty,amt)=>amt>0?'<tr style="background:'+bg+'"><td style="padding:10px 14px"><strong>'+desc+'</strong>'+(detail?'<br><span style="font-size:11px;color:#6b6a64">'+detail+'</span>':'')+'</td><td style="padding:10px 14px;text-align:right;font-size:12px">'+rate+'</td><td style="padding:10px 14px;text-align:center;font-size:12px">'+qty+'</td><td style="padding:10px 14px;text-align:right;font-weight:700">'+f2(amt)+'</td></tr>':'';
-
-  const lineItems =
-    trow('#f9f7f4','Safari Vehicle / Transport','Rate $'+v('inv-vehicle-rate')+'/day × '+v('inv-vehicle-days')+' days ÷ '+v('inv-vehicle-pax')+' people','$'+v('inv-vehicle-rate').toFixed(2)+'/day',v('inv-vehicle-days')+' days',transport)+
-    trow('#fff','Accommodation',( b.hotel||'Lodge/Camp')+' — $'+v('inv-accom-rate')+'/person/night','$'+v('inv-accom-rate').toFixed(2)+'/night',v('inv-accom-nights')+' nights',accom)+
-    trow('#f9f7f4','Park & Conservation Fees','$'+v('inv-park-rate')+'/person/day','$'+v('inv-park-rate').toFixed(2)+'/day',v('inv-park-days')+' days',park)+
-    trow('#fff','Meals & Drinks','$'+v('inv-meals-rate')+'/person/day','$'+v('inv-meals-rate').toFixed(2)+'/day',v('inv-meals-days')+' days',meals)+
-    trow('#f9f7f4','Activities','e.g. balloon safari, gorilla permit, cultural visits','—','—',activ)+
-    trow('#fff','Domestic Flights','','—','—',flights)+
+window.buildInvoice=()=>{
+  const b=cache.bookings.find(x=>x.id===_invBkId); if(!b){toast('No booking selected','error');return;}
+  const v=(eid)=>parseFloat(document.getElementById(eid)?.value)||0;
+  const isKES=_curType==='resident'||_curType==='citizen';
+  const sym=isKES?'Ksh':'$';
+  const curLabel=isKES?'Kenya Shillings (Ksh)':'US Dollars (USD)';
+  const ctLabel={nonresident:'Non-Resident / International',resident:'Resident',citizen:'Citizen'}[_curType];
+  const fxRate=v('inv-fx')||129;
+  const fxNote=document.getElementById('inv-fx-note')?.value||'';
+  const fmt=(n,force2=false)=>{
+    if(n<=0)return'—';
+    if(isKES)return'Ksh '+Math.round(n).toLocaleString();
+    return'$'+n.toFixed(2);
+  };
+  const n=nights(b.start_date,b.end_date);
+  const transport=v('iv-vpax')>0?v('iv-vrate')*v('iv-vdays')/v('iv-vpax'):0;
+  const accom=v('iv-arate')*v('iv-anights');
+  const park=v('iv-prate')*v('iv-pdays');
+  const meals=v('iv-mrate')*v('iv-mdays');
+  const act=v('iv-act'),fl=v('iv-flights'),sgr=v('iv-sgr'),er=v('iv-erun'),oth=v('iv-oamt');
+  const otherLbl=document.getElementById('iv-olabel')?.value||'Other costs';
+  const mkupPct=v('iv-markup');
+  const totalPax=Math.max(v('iv-tpax'),1);
+  const sub=transport+accom+park+meals+act+fl+sgr+er+oth;
+  const mkup=sub*(mkupPct/100);
+  const perPax=sub+mkup;
+  const grand=perPax*totalPax;
+  const paid=b.amount_paid||0;
+  const paidDisplay=isKES?'Ksh '+(Math.round(paid*fxRate)).toLocaleString():'$'+paid.toFixed(2);
+  const balance=grand-( isKES?paid*fxRate:paid);
+  const invNum='INV-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  const trow=(bg,desc,detail,rate,qty,amt)=>amt>0?`<tr style="background:${bg}"><td style="padding:10px 14px"><strong>${desc}</strong>${detail?`<br><span style="font-size:11px;color:#6b6a64">${detail}</span>`:''}</td><td style="padding:10px 14px;text-align:right;font-size:12px">${rate}</td><td style="padding:10px 14px;text-align:center;font-size:12px">${qty}</td><td style="padding:10px 14px;text-align:right;font-weight:700">${fmt(amt)}</td></tr>`:'';
+  const lineItems=
+    trow('#f9f7f4','Safari Vehicle / Transport',`Rate ${fmt(v('iv-vrate'))}/day × ${v('iv-vdays')} days ÷ ${v('iv-vpax')} people`,`${fmt(v('iv-vrate'))}/day`,v('iv-vdays')+' days',transport)+
+    trow('#fff','Accommodation',(b.hotel||'Lodge/Camp')+` — ${fmt(v('iv-arate'))}/person/night`,`${fmt(v('iv-arate'))}/night`,v('iv-anights')+' nights',accom)+
+    trow('#f9f7f4','Park & Conservation Fees',`${fmt(v('iv-prate'))}/person/day (${ctLabel} rate)`,`${fmt(v('iv-prate'))}/day`,v('iv-pdays')+' days',park)+
+    trow('#fff','Meals & Drinks',`${fmt(v('iv-mrate'))}/person/day`,`${fmt(v('iv-mrate'))}/day`,v('iv-mdays')+' days',meals)+
+    trow('#f9f7f4','Activities','e.g. balloon safari, gorilla permit','—','—',act)+
+    trow('#fff','Domestic Flights','','—','—',fl)+
     trow('#f9f7f4','SGR / Train','','—','—',sgr)+
-    trow('#fff','Empty Run / Positioning','Vehicle positioning cost','—','—',erun)+
-    (otherAmt>0?trow('#f9f7f4',otherLbl,'','—','—',otherAmt):'')+
-    (mkup>0?trow('#fffbf5','Markup / Profit Margin ('+mkupPct+'%)','Applied on cost subtotal',''+mkupPct+'%','—',mkup):'');
+    trow('#fff','Empty Run / Positioning','Vehicle positioning cost','—','—',er)+
+    (oth>0?trow('#f9f7f4',otherLbl,'','—','—',oth):'')+
+    (mkup>0?trow('#fffbf5',`Markup / Profit Margin (${mkupPct}%)`,`Applied on cost subtotal`,'%','—',mkup):'');
 
-  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Proforma Invoice '+invNum+'</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;background:#fff;color:#1a1a18;line-height:1.5;font-size:14px}@media print{.no-print{display:none!important}@page{margin:15mm}}</style></head><body><div style="max-width:740px;margin:0 auto;padding:40px 32px">'+
-    '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:24px;border-bottom:3px solid #1a3a2a">'+
-      '<div><div style="font-size:24px;font-weight:800;color:#1a3a2a">🦁 Safari Workflow</div><div style="font-size:12px;color:#6b6a64;margin-top:4px">Operations Platform · Nairobi, Kenya</div></div>'+
-      '<div style="text-align:right"><div style="background:#c8893a;color:#fff;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:6px">PROFORMA INVOICE</div>'+
-        '<div style="font-size:22px;font-weight:800;color:#1a3a2a">'+invNum+'</div>'+
-        '<div style="font-size:12px;color:#6b6a64;margin-top:3px">'+new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})+'</div>'+
-        '<div style="margin-top:8px;display:inline-block;padding:4px 12px;border-radius:4px;font-size:12px;font-weight:700;background:'+(balance>0?'#faeeda':'#eaf3de')+';color:'+(balance>0?'#633806':'#27500a')+'">'+(balance>0?'BALANCE DUE':'PAID IN FULL')+'</div>'+
-      '</div>'+
-    '</div>'+
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px">'+
-      '<div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b6a64;margin-bottom:6px">Bill To</div>'+
-        '<div style="font-size:16px;font-weight:700">'+b.client_name+'</div></div>'+
-      '<div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b6a64;margin-bottom:6px">Safari Details</div>'+
-        '<div style="font-size:13px;color:#4a4a48;line-height:1.8">'+
-          '<div><strong>Tour:</strong> '+(b.tour_name||'—')+'</div>'+
-          '<div><strong>Start date:</strong> '+fmtDate(b.start_date)+'</div>'+
-          '<div><strong>End date:</strong> '+fmtDate(b.end_date)+'</div>'+
-          '<div><strong>Duration:</strong> '+nights+' nights</div>'+
-          '<div><strong>Guests:</strong> '+totalPax+'</div>'+
-          (b.guide_name?'<div><strong>Guide:</strong> '+b.guide_name+'</div>':'')+
-          (b.hotel?'<div><strong>Accommodation:</strong> '+b.hotel+'</div>':'')+
-        '</div>'+
-      '</div>'+
-    '</div>'+
-    '<table style="width:100%;border-collapse:collapse;margin-bottom:8px">'+
-      '<thead><tr style="background:#1a3a2a;color:#fff">'+
-        '<th style="padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Cost Component</th>'+
-        '<th style="padding:10px 14px;text-align:right;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Rate</th>'+
-        '<th style="padding:10px 14px;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Qty</th>'+
-        '<th style="padding:10px 14px;text-align:right;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Per Person</th>'+
-      '</tr></thead>'+
-      '<tbody>'+lineItems+'</tbody>'+
-    '</table>'+
-    '<div style="background:#f0f8f0;border:1px solid #c0dcc0;border-radius:6px;padding:10px 14px;margin-bottom:8px;font-size:12px;color:#2d5a2d">'+
-      '📌 <strong>How costs are calculated:</strong> Transport = (vehicle rate × days) ÷ people in vehicle. All other costs shown per person. Grand total = cost per person × number of guests.'+
-    '</div>'+
-    '<div style="display:flex;justify-content:flex-end;margin-bottom:32px">'+
-      '<table style="font-size:13px;min-width:300px;border-collapse:collapse">'+
-        '<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Cost subtotal (per person)</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600">'+f2(sub)+'</td></tr>'+
-        (mkup>0?'<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Markup ('+mkupPct+'%)</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600">'+f2(mkup)+'</td></tr>':'')+
-        '<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Cost per person</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:700;font-size:15px">'+f2(perPax)+'</td></tr>'+
-        '<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">× '+totalPax+' guests</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600">'+f2(grand)+'</td></tr>'+
-        (paid>0?'<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Deposit paid</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600;color:#27500a">– '+f2(paid)+'</td></tr>':'')+
-        '<tr style="background:#1a3a2a;color:#fff"><td style="padding:12px 16px;font-size:16px;font-weight:800;border-radius:0 0 0 6px">Balance Due</td><td style="padding:12px 16px;text-align:right;font-size:22px;font-weight:800;color:'+(balance>0?'#f0c070':'#a8e6a8')+';border-radius:0 0 6px 0">'+f2(balance)+'</td></tr>'+
-      '</table>'+
-    '</div>'+
-    '<div style="background:#f9f7f4;border-radius:8px;padding:18px;margin-bottom:24px">'+
-      '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6b6a64;margin-bottom:8px">Payment Terms</div>'+
-      '<div style="font-size:13px;color:#4a4a48;line-height:1.8">'+
-        '• 30% deposit required to confirm booking<br>'+
-        '• Full payment due 30 days before safari start date<br>'+
-        '• Cancellation within 30 days of departure: 50% of total cost<br>'+
-        '• Cancellation within 14 days of departure: 100% of total cost'+
-      '</div>'+
-    '</div>'+
-    '<div style="text-align:center;color:#9c9a93;font-size:12px;border-top:1px solid #e8e6e0;padding-top:16px">'+
-      'Thank you for choosing Safari Workflow. This is a proforma invoice — final invoice issued upon full payment.<br>'+
-      'Generated '+new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})+
-    '</div>'+
-  '</div>'+
-  '<div class="no-print" style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px">'+
-    '<button onclick="window.print()" style="padding:10px 20px;background:#1a3a2a;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600">🖨 Print / Save PDF</button>'+
-    '<button onclick="window.close()" style="padding:10px 20px;background:#666;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">Close</button>'+
-  '</div></body></html>';
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Proforma Invoice ${invNum}</title>
+  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a18;line-height:1.5;font-size:14px}@media print{.np{display:none!important}@page{margin:15mm}}</style></head><body>
+  <div style="max-width:740px;margin:0 auto;padding:40px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:24px;border-bottom:3px solid #1a3a2a">
+      <div><div style="font-size:22px;font-weight:800;color:#1a3a2a">🦁 Safari Workflow</div><div style="font-size:12px;color:#6b6a64;margin-top:4px">Operations Platform · Nairobi, Kenya</div></div>
+      <div style="text-align:right">
+        <div style="background:#c8893a;color:#fff;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:6px">PROFORMA INVOICE</div>
+        <div style="font-size:22px;font-weight:800;color:#1a3a2a">${invNum}</div>
+        <div style="font-size:12px;color:#6b6a64;margin-top:3px">${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}</div>
+        <div style="margin-top:6px;font-size:12px;font-weight:700;padding:4px 12px;border-radius:4px;display:inline-block;background:${balance>0?'#faeeda':'#eaf3de'};color:${balance>0?'#633806':'#27500a'}">${balance>0?'BALANCE DUE':'PAID IN FULL'}</div>
+      </div>
+    </div>
+    <!-- CLIENT TYPE BANNER -->
+    <div style="background:${isKES?'#DCFCE7':'#EFF6FF'};border:1px solid ${isKES?'#86efac':'#93c5fd'};border-radius:8px;padding:10px 16px;margin-bottom:24px;display:flex;align-items:center;gap:10px">
+      <span style="font-size:20px">${{nonresident:'🌍',resident:'🇰🇪',citizen:'🏠'}[_curType]}</span>
+      <div><div style="font-size:13px;font-weight:700;color:${isKES?'#166534':'#1e40af'}">${ctLabel} Rate — Invoiced in ${curLabel}</div>
+        <div style="font-size:11px;color:${isKES?'#166534':'#1e40af'};margin-top:2px">${isKES?'Resident/Citizen park rates apply. All amounts in Kenya Shillings.':'Non-resident park rates apply. All amounts in US Dollars.'}</div>
+        ${isKES&&fxNote?`<div style="font-size:11px;color:#6b6a64;margin-top:2px">Exchange rate: 1 USD = Ksh ${fxRate} ${fxNote?'('+fxNote+')':''}</div>`:''}</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px">
+      <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b6a64;margin-bottom:6px">Bill To</div>
+        <div style="font-size:16px;font-weight:700">${b.client_name}</div></div>
+      <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b6a64;margin-bottom:6px">Safari Details</div>
+        <div style="font-size:13px;color:#4a4a48;line-height:1.8">
+          <div><strong>Tour:</strong> ${b.tour_name||'—'}</div>
+          <div><strong>Start date:</strong> ${fmtDate(b.start_date)}</div>
+          <div><strong>End date:</strong> ${fmtDate(b.end_date)}</div>
+          <div><strong>Duration:</strong> ${n} nights</div>
+          <div><strong>Guests:</strong> ${totalPax}</div>
+          ${b.guide_name?`<div><strong>Guide:</strong> ${b.guide_name}</div>`:''}
+          ${b.hotel?`<div><strong>Accommodation:</strong> ${b.hotel}</div>`:''}
+        </div>
+      </div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:8px">
+      <thead><tr style="background:#1a3a2a;color:#fff">
+        <th style="padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Cost Component</th>
+        <th style="padding:10px 14px;text-align:right;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Rate</th>
+        <th style="padding:10px 14px;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Qty</th>
+        <th style="padding:10px 14px;text-align:right;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Per Person (${sym})</th>
+      </tr></thead>
+      <tbody>${lineItems}</tbody>
+    </table>
+    <div style="background:#f0f8f0;border:1px solid #c0dcc0;border-radius:6px;padding:10px 16px;margin-bottom:16px;font-size:12px;color:#2d5a2d">
+      📌 <strong>Formula:</strong> Transport = (vehicle rate × days) ÷ people. All other items per person. Grand total = cost per person × number of guests.
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:32px">
+      <table style="font-size:13px;min-width:320px;border-collapse:collapse">
+        <tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Cost subtotal (per person)</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600">${fmt(sub)}</td></tr>
+        ${mkup>0?`<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Markup (${mkupPct}%)</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600">${fmt(mkup)}</td></tr>`:''}
+        <tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Cost per person</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:700;font-size:15px">${fmt(perPax)}</td></tr>
+        <tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">× ${totalPax} guests</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:700">${fmt(grand)}</td></tr>
+        ${paid>0?`<tr><td style="padding:7px 16px;color:#6b6a64;border-bottom:0.5px solid #e8e6e0">Deposit paid</td><td style="padding:7px 0;text-align:right;border-bottom:0.5px solid #e8e6e0;font-weight:600;color:#27500a">– ${paidDisplay}</td></tr>`:''}
+        <tr style="background:#1a3a2a;color:#fff"><td style="padding:12px 16px;font-size:15px;font-weight:800">Balance Due</td><td style="padding:12px 16px;text-align:right;font-size:22px;font-weight:800;color:${balance>0?'#f0c070':'#a8e6a8'}">${fmt(Math.max(balance,0))}</td></tr>
+      </table>
+    </div>
+    <div style="background:#f9f7f4;border-radius:8px;padding:18px;margin-bottom:24px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6b6a64;margin-bottom:8px">Payment Terms</div>
+      <div style="font-size:13px;color:#4a4a48;line-height:1.8">
+        • 30% deposit required to confirm booking<br>
+        • Full payment due 30 days before safari start date<br>
+        • Cancellation within 30 days of departure: 50% of total<br>
+        • Cancellation within 14 days of departure: 100% of total
+      </div>
+    </div>
+    <div style="text-align:center;color:#9c9a93;font-size:12px;border-top:1px solid #e8e6e0;padding-top:16px">
+      Thank you for choosing Safari Workflow. This is a proforma invoice — final invoice issued upon full payment.<br>
+      Generated ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}
+    </div>
+  </div>
+  <div class="np" style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px">
+    <button onclick="window.print()" style="padding:10px 20px;background:#1a3a2a;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600">🖨 Print / Save PDF</button>
+    <button onclick="window.close()" style="padding:10px 20px;background:#666;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">Close</button>
+  </div></body></html>`;
   closeModal('modal-invoice');
   const w=window.open('','_blank'); w.document.write(html); w.document.close();
 };
 
-
 // ── PRE-TRIP ──
-function vPreTrip() {
-  const confirmed = cache.bookings.filter(b=>b.status==='confirmed');
-  if(!confirmed.length) return '<div class="card"><p style="color:var(--text3)">No confirmed bookings requiring pre-trip management.</p></div>';
+function vPreTrip(){
+  const confirmed=cache.bookings.filter(b=>b.status==='confirmed');
+  if(!confirmed.length)return'<div class="card"><p style="color:var(--text3)">No confirmed bookings requiring pre-trip management.</p></div>';
+  const sb2=(s)=>({sent:'confirmed',confirmed:'confirmed',approved:'confirmed','n/a':'won',pending:'pending','not_sent':'lost'}[s]||'pending');
   return confirmed.map(b=>{
-    const dl=daysLeft(b.start_date)||0;
+    const dl=dLeft(b.start_date)||0;
     const docs=[['Passport',b.passport_status||'pending'],['Visa',b.visa_status||'pending'],['Insurance',b.insurance_status||'pending'],['Packing List',b.packing_sent?'sent':'not_sent'],['Transfers',b.transfers_confirmed?'confirmed':'pending'],['Briefing',b.briefing_sent?'sent':'not_sent']];
-    const sb2=(s)=>({sent:'confirmed',confirmed:'confirmed',approved:'confirmed','n/a':'won',pending:'pending','not_sent':'lost'}[s]||'pending');
     return `<div class="card" style="margin-bottom:14px">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-        <div>
-          <div style="font-size:14px;font-weight:700">${b.client_name} — ${b.tour_name||''}</div>
+        <div><div style="font-size:14px;font-weight:700">${b.client_name} — ${b.tour_name||''}</div>
           <div style="font-size:12px;color:var(--text2)">Start: <strong>${fmtDate(b.start_date)}</strong> → End: <strong>${fmtDate(b.end_date)}</strong> · <strong style="color:${dl<30?'var(--red-text)':dl<60?'var(--amber-text)':'var(--green-text)'}">${dl} days away</strong></div>
         </div>
         <div style="display:flex;gap:7px">
@@ -1120,16 +933,191 @@ function vPreTrip() {
           <button class="btn success" onclick="markAllDocs('${b.id}')">Mark All Complete</button>
         </div>
       </div>
-      <div class="grid-3">
-        ${docs.map(([label,val])=>`<div style="padding:8px;border:0.5px solid var(--border);border-radius:var(--radius)"><div style="font-size:10px;color:var(--text3);margin-bottom:4px">${label}</div><span class="badge ${sb2(val)}">${val}</span></div>`).join('')}
+      <div class="grid-3">${docs.map(([lbl,val])=>`<div style="padding:8px;border:0.5px solid var(--border);border-radius:var(--radius)"><div style="font-size:10px;color:var(--text3);margin-bottom:4px">${lbl}</div><span class="badge ${sb2(val)}">${val}</span></div>`).join('')}</div>
+    </div>`;
+  }).join('');
+}
+window.sendReminder=async(id,name)=>{await sb.from('bookings').update({packing_sent:true,briefing_sent:true}).eq('id',id);toast('Reminder sent to '+name);};
+window.markAllDocs=async(id)=>{await sb.from('bookings').update({passport_status:'uploaded',visa_status:'approved',insurance_status:'uploaded',packing_sent:true,transfers_confirmed:true,briefing_sent:true}).eq('id',id);toast('All docs complete');};
+
+// ── ON-TRIP ──
+function vOnTrip(){
+  const active=cache.bookings.filter(b=>b.status==='intransit');
+  if(!active.length)return'<div class="card"><p style="color:var(--text3);font-size:13px">No trips in progress. Change a booking status to "intransit".</p></div>';
+  return active.map(b=>{
+    const msgs=cache.messages.filter(m=>m.booking_id===b.id);
+    return `<div class="grid-2" style="margin-bottom:14px">
+      <div class="card"><div class="section-header"><h3>${b.client_name} — ${b.tour_name||''}</h3></div>
+        <div style="font-size:12px;margin-bottom:10px">
+          <div>📅 <strong>${fmtDate(b.start_date)}</strong> → <strong>${fmtDate(b.end_date)}</strong></div>
+          <div>🏕 Lodge: <strong>${b.hotel||'—'}</strong></div>
+          <div>🧭 Guide: <strong>${b.guide_name||'Self-guided'}</strong></div>
+        </div>
+        <div class="alert success">✓ Flight monitoring active — no delays detected</div>
+        <textarea id="msg-${b.id}" rows="2" placeholder="Type update or alert..." style="font-size:12px;margin-top:10px"></textarea>
+        <div style="margin-top:8px;display:flex;gap:7px;flex-wrap:wrap">
+          <button class="btn primary" onclick="sendMsg('${b.id}')">Send</button>
+          <button class="btn" style="font-size:11px" onclick="sendMsg('${b.id}','✅ Transfer confirmed for tomorrow 08:00.')">Transfer OK</button>
+        </div>
+      </div>
+      <div class="card"><div class="section-header"><h3>Communication Log</h3></div>
+        <div class="timeline">${msgs.length===0?'<div style="color:var(--text3);font-size:12px">No messages yet.</div>':''}
+          ${msgs.map(m=>`<div class="tl-item"><div class="tl-dot done"></div><div style="font-size:12.5px;font-weight:500;margin-bottom:1px">${m.content}</div><div style="font-size:11px;color:var(--text3)">${(m.created_at||'').slice(0,16).replace('T',' ')} · ${m.sender||'Agent'}</div></div>`).join('')}
+        </div>
       </div>
     </div>`;
   }).join('');
 }
-window.sendReminder = async (id,name) => { await sb.from('bookings').update({packing_sent:true,briefing_sent:true}).eq('id',id); toast('Reminder sent to '+name); };
-window.markAllDocs = async (id) => { await sb.from('bookings').update({passport_status:'uploaded',visa_status:'approved',insurance_status:'uploaded',packing_sent:true,transfers_confirmed:true,briefing_sent:true}).eq('id',id); toast('All documents marked complete'); };
+window.sendMsg=async(bId,pre)=>{
+  const ta=document.getElementById('msg-'+bId);
+  const content=pre||ta?.value?.trim(); if(!content)return;
+  await sb.from('messages').insert({booking_id:bId,content,sender:'Agent'});
+  if(ta)ta.value=''; toast('Message logged');
+};
 
-// ── ON-TRIP ──
-function vOnTrip() {
-  const active = cache.bookings.filter(b=>b.status==='intransit');
-  if(!active.length) return '<div class="card"><p style="color:var(--text3);font-size:13px">No trips currently in progress. Change a booking status to "intransit" to track it
+// ── POST-TRIP ──
+function vPostTrip(){
+  const done=cache.bookings.filter(b=>b.status==='completed');
+  if(!done.length)return'<div class="card"><p style="color:var(--text3)">No completed trips yet.</p></div>';
+  return `
+  <div class="card" style="margin-bottom:14px">
+    <div class="section-header"><h3>Record Client Feedback</h3></div>
+    <div class="form-group"><label>Select Trip</label><select id="pt-bk">${done.map(b=>`<option value="${b.id}">${b.client_name} — ${b.tour_name||''} (${fmtDate(b.start_date)})</option>`).join('')}</select></div>
+    <div class="r3">
+      <div class="form-group"><label>NPS Score (0–10)</label><input type="number" id="pt-nps" min="0" max="10" placeholder="9"/></div>
+      <div class="form-group"><label>Guide Rating (1–5)</label><input type="number" id="pt-guide" min="1" max="5"/></div>
+      <div class="form-group"><label>Lodge Rating (1–5)</label><input type="number" id="pt-hotel" min="1" max="5"/></div>
+    </div>
+    <div class="form-group"><label>Client Comments</label><textarea id="pt-comments" placeholder="Feedback from client..."></textarea></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn primary" onclick="saveFeedback()">Save Feedback</button>
+      <button class="btn success" onclick="requestReview()">Request Google Review</button>
+      <button class="btn" onclick="toast('Loyalty offer queued')">Send Loyalty Offer</button>
+    </div>
+  </div>
+  <div class="card"><div class="section-header"><h3>Completed Trips</h3></div>
+    <table class="tbl"><thead><tr><th>Client</th><th>Tour</th><th>Start</th><th>End</th><th>NPS</th><th>Guide</th><th>Lodge</th><th>Review</th></tr></thead><tbody>
+      ${done.map(b=>`<tr><td><strong>${b.client_name}</strong></td><td>${b.tour_name||'—'}</td><td>${fmtDate(b.start_date)}</td><td>${fmtDate(b.end_date)}</td><td>${b.nps_score!=null?b.nps_score:'—'}</td><td>${b.guide_rating!=null?'★'.repeat(b.guide_rating):'—'}</td><td>${b.hotel_rating!=null?'★'.repeat(b.hotel_rating):'—'}</td><td>${b.review_requested?'<span class="badge confirmed">Sent</span>':'<span class="badge pending">Pending</span>'}</td></tr>`).join('')}
+    </tbody></table>
+  </div>`;
+}
+window.saveFeedback=async()=>{
+  const id=document.getElementById('pt-bk')?.value;
+  const nps=parseInt(document.getElementById('pt-nps')?.value);
+  if(!id||isNaN(nps)){toast('Select booking and enter NPS','error');return;}
+  await sb.from('bookings').update({nps_score:nps,guide_rating:parseInt(document.getElementById('pt-guide')?.value),hotel_rating:parseInt(document.getElementById('pt-hotel')?.value),client_comments:document.getElementById('pt-comments')?.value}).eq('id',id);
+  toast('Feedback saved!');
+};
+window.requestReview=async()=>{const id=document.getElementById('pt-bk')?.value;if(!id)return;await sb.from('bookings').update({review_requested:true}).eq('id',id);toast('Review request logged');};
+
+// ── SUPPLIERS ──
+function vSuppliers(){
+  const catLabel={lodge:'Lodge / Camp',park:'National Park / Reserve',airline:'Airline',transport:'Transport / Transfer',activity:'Activity Provider',other:'Other'};
+  const cats=['lodge','park','airline','transport','activity','other'];
+  const avg=cache.suppliers.length?(cache.suppliers.reduce((a,s)=>a+(s.rating||0),0)/cache.suppliers.length).toFixed(1):'—';
+  const renewing=cache.suppliers.filter(s=>s.renewal_date&&new Date(s.renewal_date)<new Date(Date.now()+90*86400000)).length;
+  return `
+  <div class="grid-4" style="margin-bottom:14px">
+    <div class="metric"><label>Total Suppliers</label><div class="val">${cache.suppliers.length}</div></div>
+    <div class="metric"><label>Avg Rating</label><div class="val">${avg} ★</div></div>
+    <div class="metric"><label>Lodges & Camps</label><div class="val">${cache.suppliers.filter(s=>s.category==='lodge').length}</div></div>
+    <div class="metric"><label>Renewals (90d)</label><div class="val ${renewing>0?'down':''}">${renewing}</div>${renewing>0?'<div class="sub down">Action needed</div>':''}</div>
+  </div>
+  ${cats.filter(c=>cache.suppliers.some(s=>s.category===c)).map(c=>{
+    const sups=cache.suppliers.filter(s=>s.category===c);
+    return `<div class="card" style="margin-bottom:14px">
+      <div class="section-header"><h3><span class="sup-cat sup-${c}">${catLabel[c]||c}</span> &nbsp;(${sups.length})</h3>
+        <button class="btn primary" style="font-size:11px" onclick="openModal('modal-supplier')">+ Add</button>
+      </div>
+      <table class="tbl"><thead><tr><th>Name</th><th>Region</th><th>Rate Type</th><th>Low Season (USD)</th><th>High Season (USD)</th><th>Resident Rate (KES)</th><th>Rating</th><th>Renewal</th><th>Notes</th><th></th></tr></thead><tbody>
+        ${sups.map(s=>{
+          const rf=s.renewal_date&&new Date(s.renewal_date)<new Date(Date.now()+90*86400000);
+          return `<tr>
+            <td><strong>${s.name}</strong>${s.email?`<br><span style="font-size:10px;color:var(--text3)">${s.email}</span>`:''}</td>
+            <td>${s.region||'—'}</td>
+            <td style="font-size:11px">${(s.rate_type||'').replace(/_/g,' ')}</td>
+            <td style="font-weight:600;color:var(--blue-text)">${s.rate_low?'$'+s.rate_low:'—'}</td>
+            <td style="font-weight:600;color:var(--amber-text)">${s.rate_high?'$'+s.rate_high:'—'}</td>
+            <td style="font-weight:600;color:var(--green-text)">${s.rate_resident?'Ksh '+Number(s.rate_resident).toLocaleString():'—'}</td>
+            <td><span class="stars">${'★'.repeat(Math.round(s.rating||0))}</span></td>
+            <td style="color:${rf?'var(--red-text)':'var(--text2)'};font-size:12px">${s.renewal_date||'—'}</td>
+            <td style="font-size:11px;color:var(--text3);max-width:120px">${s.notes||''}</td>
+            <td><button class="btn danger" style="font-size:10px;padding:2px 6px" onclick="delSupplier('${s.id}')">✕</button></td>
+          </tr>`;
+        }).join('')}
+      </tbody></table>
+    </div>`;
+  }).join('')}
+  ${cache.suppliers.length===0?`<div class="card"><div class="section-header"><h3>Supplier Database</h3><button class="btn primary" onclick="openModal('modal-supplier')">+ Add First Supplier</button></div><p style="color:var(--text3)">No suppliers yet.</p></div>`:''}`;
+}
+window.delSupplier=async(id)=>{if(!confirm('Remove supplier?'))return;await sb.from('suppliers').delete().eq('id',id);toast('Removed');};
+
+// ── ANALYTICS ──
+function vAnalytics(){
+  const months=['Jan','Feb','Mar','Apr','May','Jun'];
+  const rev=[12000,18500,15200,22800,19400,27600];
+  const lm=[8,12,9,15,11,14];
+  const mR=Math.max(...rev),mL=Math.max(...lm);
+  const totalRev=cache.bookings.reduce((a,b)=>a+(b.total_price||0),0);
+  const avgBV=cache.bookings.length?Math.round(totalRev/cache.bookings.length):0;
+  const nps=cache.bookings.filter(b=>b.nps_score!=null).map(b=>b.nps_score);
+  const avgNPS=nps.length?(nps.reduce((a,b)=>a+b,0)/nps.length).toFixed(1):'—';
+  return `
+  <div class="grid-4" style="margin-bottom:16px">
+    <div class="metric"><label>Total Revenue</label><div class="val">$${totalRev.toLocaleString()}</div></div>
+    <div class="metric"><label>Avg Booking Value</label><div class="val">$${avgBV.toLocaleString()}</div></div>
+    <div class="metric"><label>Avg NPS</label><div class="val">${avgNPS}</div></div>
+    <div class="metric"><label>Total Bookings</label><div class="val">${cache.bookings.length}</div></div>
+  </div>
+  <div class="grid-2">
+    <div class="card"><h3 style="font-size:13px;font-weight:600;margin-bottom:10px">Monthly Revenue</h3>
+      <div class="chart-wrap">${rev.map((v,i)=>`<div class="chart-bar"><span>$${Math.round(v/1000)}k</span><div class="bar" style="height:${Math.round(v/mR*55)}px"></div><span>${months[i]}</span></div>`).join('')}</div></div>
+    <div class="card"><h3 style="font-size:13px;font-weight:600;margin-bottom:10px">Leads per Month</h3>
+      <div class="chart-wrap">${lm.map((v,i)=>`<div class="chart-bar"><span>${v}</span><div class="bar green" style="height:${Math.round(v/mL*55)}px"></div><span>${months[i]}</span></div>`).join('')}</div></div>
+  </div>
+  <div class="grid-2" style="margin-top:14px">
+    <div class="card"><h3 style="font-size:13px;font-weight:600;margin-bottom:10px">Top Destinations</h3>
+      ${[['Maasai Mara',38],['Kilimanjaro',24],['Zanzibar',18],['Uganda Gorillas',12],['Amboseli',8]].map(([d,w])=>`<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span>${d}</span><span style="color:var(--text3)">${w}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${w}%"></div></div></div>`).join('')}</div>
+    <div class="card"><h3 style="font-size:13px;font-weight:600;margin-bottom:10px">Lead Sources</h3>
+      ${[['Website',40],['Referral',25],['Social Media',18],['Phone',10],['Email',7]].map(([s,w])=>`<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span>${s}</span><span style="color:var(--text3)">${w}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${w}%;background:var(--green-border)"></div></div></div>`).join('')}</div>
+  </div>`;
+}
+
+// ── SAVE ACTIONS ──
+window.saveLead=async()=>{
+  const name=document.getElementById('lead-name')?.value?.trim();
+  if(!name){toast('Client name required','error');return;}
+  const{error}=await sb.from('leads').insert({client_name:name,email:document.getElementById('lead-email')?.value?.trim(),phone:document.getElementById('lead-phone')?.value?.trim(),source:document.getElementById('lead-source')?.value,tour_interest:document.getElementById('lead-tour')?.value?.trim(),budget:document.getElementById('lead-budget')?.value?.trim(),notes:document.getElementById('lead-notes')?.value?.trim(),status:'new'});
+  if(error)toast('Error: '+error.message,'error'); else{toast('Lead saved!');closeModal('modal-lead');}
+};
+window.saveBooking=async()=>{
+  const client=document.getElementById('bk-client')?.value?.trim();
+  if(!client){toast('Client name required','error');return;}
+  const{error}=await sb.from('bookings').insert({client_name:client,tour_name:document.getElementById('bk-tour')?.value?.trim(),start_date:document.getElementById('bk-start')?.value,end_date:document.getElementById('bk-end')?.value,passengers:parseInt(document.getElementById('bk-pax')?.value)||1,total_price:parseFloat(document.getElementById('bk-total')?.value)||0,amount_paid:parseFloat(document.getElementById('bk-paid')?.value)||0,guide_name:document.getElementById('bk-guide')?.value?.trim(),hotel:document.getElementById('bk-hotel')?.value?.trim(),status:'pending',passport_status:'pending',visa_status:'pending',insurance_status:'pending'});
+  if(error)toast('Error: '+error.message,'error'); else{toast('Booking saved!');closeModal('modal-booking');}
+};
+window.saveItinerary=async()=>{
+  const name=document.getElementById('it-name')?.value?.trim();
+  if(!name){toast('Title required','error');return;}
+  const{error}=await sb.from('itineraries').insert({name,client_name:document.getElementById('it-client')?.value?.trim(),start_date:document.getElementById('it-start')?.value,end_date:document.getElementById('it-end')?.value,pax:parseInt(document.getElementById('it-pax')?.value)||2,destination:document.getElementById('it-dest')?.value?.trim(),tour_type:document.getElementById('it-type')?.value,price_per_person:parseFloat(document.getElementById('it-price')?.value)||0,client_type:document.getElementById('it-client-type')?.value||'nonresident',intro:document.getElementById('it-intro')?.value?.trim(),status:'draft',days_json:'[]',days:0});
+  if(error)toast('Error: '+error.message,'error'); else{toast('Itinerary created!');closeModal('modal-itinerary');}
+};
+window.saveSupplier=async()=>{
+  const name=document.getElementById('sup-name')?.value?.trim();
+  if(!name){toast('Supplier name required','error');return;}
+  const{error}=await sb.from('suppliers').insert({name,category:document.getElementById('sup-cat')?.value,region:document.getElementById('sup-region')?.value?.trim(),email:document.getElementById('sup-email')?.value?.trim(),phone:document.getElementById('sup-phone')?.value?.trim(),renewal_date:document.getElementById('sup-renewal')?.value,rate_type:document.getElementById('sup-ratetype')?.value,rate_currency:document.getElementById('sup-ratecur')?.value,rate_low:parseFloat(document.getElementById('sup-rate-low')?.value)||null,rate_high:parseFloat(document.getElementById('sup-rate-high')?.value)||null,rate_resident:parseFloat(document.getElementById('sup-rate-resident')?.value)||null,notes:document.getElementById('sup-notes')?.value?.trim(),rating:4.0,contract_status:'Active'});
+  if(error)toast('Error: '+error.message,'error'); else{toast('Supplier added!');closeModal('modal-supplier');}
+};
+window.updateBkStatus=async(id,status)=>{await sb.from('bookings').update({status}).eq('id',id);toast('Status updated');};
+
+// ── UTILS ──
+window.openModal=(id)=>{document.getElementById(id).style.display='flex';};
+window.closeModal=(id)=>{document.getElementById(id).style.display='none';};
+window.toast=(msg,type)=>{
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.style.background=type==='error'?'var(--red-text)':'var(--text)';
+  el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),3000);
+};
+</script>
+</body>
+</html>
