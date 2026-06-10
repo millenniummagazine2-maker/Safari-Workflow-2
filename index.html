@@ -228,12 +228,36 @@ textarea{resize:vertical;min-height:60px}
 
 <!-- MODAL: NEW ITINERARY -->
 <div id="modal-itinerary" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('modal-itinerary')">
-  <div class="modal"><h3>New Itinerary</h3>
-    <div class="r2"><div class="form-group"><label>Itinerary Title</label><input type="text" id="it-name" placeholder="e.g. Maasai Mara 7-Day Safari"/></div><div class="form-group"><label>Client Name</label><input type="text" id="it-client"/></div></div>
+  <div class="modal" style="max-width:640px"><h3>✨ New Itinerary</h3>
+    <div class="r2"><div class="form-group"><label>Itinerary Title</label><input type="text" id="it-name" placeholder="e.g. Maasai Mara & Amboseli 8-Day"/></div><div class="form-group"><label>Client Name</label><input type="text" id="it-client"/></div></div>
     <div class="r3"><div class="form-group"><label>Start Date</label><input type="date" id="it-start"/></div><div class="form-group"><label>End Date</label><input type="date" id="it-end"/></div><div class="form-group"><label>Pax</label><input type="number" id="it-pax" min="1" value="2"/></div></div>
-    <div class="r2"><div class="form-group"><label>Destination(s)</label><input type="text" id="it-dest" placeholder="e.g. Maasai Mara, Amboseli"/></div><div class="form-group"><label>Tour Type</label><select id="it-type"><option>Safari</option><option>Beach</option><option>Mountain Trek</option><option>Cultural</option><option>Combined</option></select></div></div>
-    <div class="r2"><div class="form-group"><label>Price Per Person (USD)</label><input type="number" id="it-price"/></div><div class="form-group"><label>Client Type</label><select id="it-client-type"><option value="nonresident">Non-Resident</option><option value="resident">Resident</option><option value="citizen">Citizen</option></select></div></div>
-    <div class="form-group"><label>Overview / Introduction</label><textarea id="it-intro" rows="3" placeholder="Brief description of the safari..."></textarea></div>
+    <div class="r2"><div class="form-group"><label>Tour Type</label><select id="it-type"><option>Safari</option><option>Beach</option><option>Mountain Trek</option><option>Cultural</option><option>Combined Safari & Beach</option><option>Gorilla Trekking</option></select></div><div class="form-group"><label>Client Type</label><select id="it-client-type"><option value="nonresident">Non-Resident (USD)</option><option value="resident">Resident (KES)</option><option value="citizen">Citizen (KES)</option></select></div></div>
+    <div class="form-group"><label>Parks / Destinations (add each separately)</label>
+      <div id="it-parks-list" style="margin-bottom:8px"></div>
+      <div style="display:flex;gap:8px">
+        <select id="it-park-pick" style="flex:1">
+          <option value="">-- Select a park / destination --</option>
+          <option value="Maasai Mara National Reserve|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Masai_Mara_lion.jpg/640px-Masai_Mara_lion.jpg">Maasai Mara National Reserve, Kenya</option>
+          <option value="Amboseli National Park|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Amboseli_Kilimanjaro.jpg/640px-Amboseli_Kilimanjaro.jpg">Amboseli National Park, Kenya</option>
+          <option value="Serengeti National Park|Tanzania|https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Wildebeest_herds_in_the_Serengeti.jpg/640px-Wildebeest_herds_in_the_Serengeti.jpg">Serengeti National Park, Tanzania</option>
+          <option value="Ngorongoro Conservation Area|Tanzania|https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ngorongoro_Crater_-_panoramio.jpg/640px-Ngorongoro_Crater_-_panoramio.jpg">Ngorongoro Crater, Tanzania</option>
+          <option value="Tsavo East & West|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Tsavo_East_-_panoramio.jpg/640px-Tsavo_East_-_panoramio.jpg">Tsavo East & West, Kenya</option>
+          <option value="Samburu National Reserve|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Samburu_National_Reserve.jpg/640px-Samburu_National_Reserve.jpg">Samburu National Reserve, Kenya</option>
+          <option value="Lake Nakuru National Park|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lake_nakuru_flamingos.jpg/640px-Lake_nakuru_flamingos.jpg">Lake Nakuru National Park, Kenya</option>
+          <option value="Bwindi Impenetrable Forest|Uganda|https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bwindi_Impenetrable_Forest.jpg/640px-Bwindi_Impenetrable_Forest.jpg">Bwindi Impenetrable Forest, Uganda</option>
+          <option value="Queen Elizabeth National Park|Uganda|https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Queen_Elizabeth_National_Park_Uganda.jpg/640px-Queen_Elizabeth_National_Park_Uganda.jpg">Queen Elizabeth NP, Uganda</option>
+          <option value="Zanzibar Island|Tanzania|https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Zanzibar_beach.jpg/640px-Zanzibar_beach.jpg">Zanzibar Beach, Tanzania</option>
+          <option value="Mount Kilimanjaro|Tanzania|https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Mount_Kilimanjaro_Dec_2009_jpg1.jpg/640px-Mount_Kilimanjaro_Dec_2009_jpg1.jpg">Mount Kilimanjaro, Tanzania</option>
+          <option value="Nairobi National Park|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Nairobi_National_Park_Giraffe.jpg/640px-Nairobi_National_Park_Giraffe.jpg">Nairobi National Park, Kenya</option>
+          <option value="Hell's Gate National Park|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hells_Gate_National_Park.jpg/640px-Hells_Gate_National_Park.jpg">Hell's Gate NP, Kenya</option>
+          <option value="Murchison Falls NP|Uganda|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Murchison_Falls.jpg/640px-Murchison_Falls.jpg">Murchison Falls NP, Uganda</option>
+          <option value="Diani Beach|Kenya|https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Diani_Beach.jpg/640px-Diani_Beach.jpg">Diani Beach, Kenya</option>
+        </select>
+        <button class="btn success" style="white-space:nowrap" onclick="addPark()">+ Add</button>
+      </div>
+    </div>
+    <div class="r2"><div class="form-group"><label>Price Per Person</label><input type="number" id="it-price" placeholder="e.g. 1500"/></div><div class="form-group"><label>Primary Lodge / Camp</label><input type="text" id="it-lodge" placeholder="e.g. Mara Serena Lodge"/></div></div>
+    <div class="form-group"><label>Overview / Introduction</label><textarea id="it-intro" rows="3" placeholder="Brief description of the safari experience..."></textarea></div>
     <div class="modal-footer"><button class="btn" onclick="closeModal('modal-itinerary')">Cancel</button><button class="btn primary" onclick="saveItinerary()">Create Itinerary</button></div>
   </div>
 </div>
@@ -540,134 +564,263 @@ window.updateBkStatus=async(id,status)=>{await sb.from('bookings').update({statu
 
 // ── ITINERARY ──
 function vItinerary(){
-  return `<div class="grid-2">
-    <div class="card"><div class="section-header"><h3>Itineraries</h3><button class="btn primary" onclick="openModal('modal-itinerary')">+ New</button></div>
-      ${cache.itineraries.length===0?'<p style="color:var(--text3);font-size:13px">No itineraries yet.</p>':''}
+  return `<div style="display:flex;flex-direction:column;gap:14px">
+    <div class="card">
+      <div class="section-header"><h3>Itinerary Builder</h3><button class="btn primary" onclick="openModal('modal-itinerary')">+ New Itinerary</button></div>
+      ${cache.itineraries.length===0?'<p style="color:var(--text3);font-size:13px;padding:8px 0">No itineraries yet. Click + New Itinerary to get started.</p>':''}
+      <div style="display:grid;gap:10px">
       ${cache.itineraries.map(it=>{
         const n=nights(it.start_date,it.end_date);
         const ctLabel={nonresident:'Non-Resident',resident:'Resident',citizen:'Citizen'}[it.client_type]||'Non-Resident';
-        return `<div style="display:flex;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid var(--border)">
-          <div style="flex:1"><div style="font-size:13px;font-weight:600">${it.name}</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px">${it.client_name||'—'} · ${n} nights · ${fmtDate(it.start_date)} → ${fmtDate(it.end_date)}</div>
-            <div style="font-size:11px;color:var(--text3)">${it.destination||''} · <span class="badge ${it.status}" style="font-size:10px">${it.status}</span> · ${ctLabel}</div>
+        const parks=it.parks_json?JSON.parse(it.parks_json):[];
+        return `<div style="border:0.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+          <div style="display:flex;gap:0">
+            ${parks.slice(0,3).map(p=>`<div style="flex:1;height:80px;background:url('${p.img}') center/cover no-repeat;min-width:0"></div>`).join('')}
+            ${parks.length===0?`<div style="flex:1;height:80px;background:linear-gradient(135deg,#1a3a2a,#c8893a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px">🦁</div>`:''}
           </div>
-          <div style="display:flex;gap:5px;flex-shrink:0;margin-left:8px">
-            <button class="btn" style="font-size:10px;padding:2px 6px" onclick="viewItinerary('${it.id}')">Edit</button>
-            <button class="btn info" style="font-size:10px;padding:2px 6px" onclick="downloadItinerary('${it.id}')">⬇ Share</button>
-            <button class="btn danger" style="font-size:10px;padding:2px 6px" onclick="deleteIt('${it.id}')">✕</button>
+          <div style="padding:12px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+            <div style="flex:1">
+              <div style="font-size:14px;font-weight:700;margin-bottom:3px">${it.name}</div>
+              <div style="font-size:11px;color:var(--text3)">${it.client_name||'—'} · ${n} nights · ${fmtDate(it.start_date)} → ${fmtDate(it.end_date)}</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px">${parks.map(p=>p.name).join(' → ')||it.destination||''} · <span class="badge ${it.status}" style="font-size:10px">${it.status}</span> · ${ctLabel}</div>
+            </div>
+            <div style="display:flex;gap:5px;flex-shrink:0">
+              <button class="btn" style="font-size:10px;padding:3px 8px" onclick="viewItinerary('${it.id}')">✏ Edit</button>
+              <button class="btn info" style="font-size:10px;padding:3px 8px" onclick="downloadItinerary('${it.id}')">⬇ Share</button>
+              <button class="btn danger" style="font-size:10px;padding:3px 8px" onclick="deleteIt('${it.id}')">✕</button>
+            </div>
           </div>
         </div>`;
       }).join('')}
+      </div>
     </div>
-    <div class="card" id="it-detail"><p style="color:var(--text3);font-size:13px">Select an itinerary to build day-by-day details.</p></div>
+    <div class="card" id="it-detail" style="display:none"></div>
   </div>`;
 }
+
+window.addPark=()=>{
+  const sel=document.getElementById('it-park-pick');
+  if(!sel.value)return;
+  const [name,country,img]=sel.value.split('|');
+  const list=document.getElementById('it-parks-list');
+  const id='park-'+Date.now();
+  const div=document.createElement('div');
+  div.id=id;
+  div.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 8px;background:var(--bg2);border-radius:var(--radius);margin-bottom:6px';
+  div.innerHTML=`<img src="${img}" style="width:40px;height:30px;object-fit:cover;border-radius:4px"/><div style="flex:1"><div style="font-size:12px;font-weight:600">${name}</div><div style="font-size:10px;color:var(--text3)">${country}</div></div><button onclick="document.getElementById('${id}').remove()" style="background:none;border:none;cursor:pointer;color:var(--red-text);font-size:14px">✕</button>`;
+  list.appendChild(div);
+  sel.value='';
+};
+
 window.viewItinerary=(id)=>{
   const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
   const days=it.days_json?JSON.parse(it.days_json):[];
+  const parks=it.parks_json?JSON.parse(it.parks_json):[];
   const n=nights(it.start_date,it.end_date);
-  document.getElementById('it-detail').innerHTML=`
-    <div class="section-header"><h3>${it.name}</h3>
-      <div style="display:flex;gap:5px"><button class="btn" style="font-size:11px" onclick="addDay('${it.id}')">+ Day</button><button class="btn info" style="font-size:11px" onclick="downloadItinerary('${it.id}')">⬇ Download</button></div></div>
-    <div style="font-size:12px;color:var(--text2);margin-bottom:12px">${fmtDate(it.start_date)} → ${fmtDate(it.end_date)} · ${n} nights · ${it.pax||1} pax · ${it.destination||''}</div>
-    ${days.length===0?'<p style="font-size:12px;color:var(--text3);margin-bottom:12px">No days yet. Click + Day.</p>':''}
-    ${days.map((d,i)=>`<div style="display:flex;gap:10px;margin-bottom:10px;padding:10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg2);align-items:flex-start">
-      <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">D${d.day}</div>
-      <div style="flex:1"><div style="font-size:12.5px;font-weight:600">${d.title}</div>
-        ${d.lodge?`<div style="font-size:11px;color:var(--text3)">🏕 ${d.lodge}</div>`:''}
-        ${d.meals?`<div style="font-size:11px;color:var(--text3)">🍽 ${d.meals}</div>`:''}
-        ${(d.activities||[]).map(a=>`<div style="font-size:11px;color:var(--text2)">· ${a}</div>`).join('')}
+  const det=document.getElementById('it-detail');
+  det.style.display='block';
+  det.innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+      <div>
+        <div style="font-size:16px;font-weight:700">${it.name}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:3px">${it.client_name||'—'} · ${fmtDate(it.start_date)} → ${fmtDate(it.end_date)} · ${n} nights · ${it.pax||1} pax</div>
+        <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+          ${parks.map(p=>`<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg2);border:0.5px solid var(--border);border-radius:20px;padding:2px 8px"><img src="${p.img}" style="width:14px;height:14px;border-radius:50%;object-fit:cover"/>${p.name}</span>`).join('')}
+        </div>
       </div>
-      <button class="btn danger" style="font-size:10px;padding:2px 6px" onclick="removeDay('${it.id}',${i})">✕</button>
-    </div>`).join('')}
-    <div style="border:0.5px dashed var(--border2);border-radius:var(--radius);padding:12px;margin-top:6px">
-      <div style="font-size:12px;font-weight:600;margin-bottom:8px;color:var(--text2)">Add next day</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn" onclick="addDayUI('${it.id}')">+ Add Day</button>
+        <button class="btn info" onclick="downloadItinerary('${it.id}')">⬇ Download / Share</button>
+        <button class="btn primary" onclick="openInvoiceFromItinerary('${it.id}')">🧾 Generate Invoice</button>
+      </div>
+    </div>
+
+    ${parks.length>0?`<div style="display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;padding-bottom:4px">
+      ${parks.map(p=>`<div style="flex-shrink:0;width:180px;border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid var(--border)">
+        <div style="height:100px;background:url('${p.img}') center/cover no-repeat"></div>
+        <div style="padding:8px"><div style="font-size:12px;font-weight:600">${p.name}</div><div style="font-size:10px;color:var(--text3)">${p.country}</div></div>
+      </div>`).join('')}
+    </div>`:''}
+
+    ${it.intro?`<div style="background:var(--bg2);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 var(--radius) var(--radius) 0;font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">${it.intro}</div>`:''}
+
+    <div id="it-days-list">
+    ${days.length===0?'<p style="color:var(--text3);font-size:13px;margin-bottom:14px">No days added yet. Click + Add Day to build the itinerary.</p>':''}
+    ${days.map((d,i)=>`
+      <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;padding:12px;border:0.5px solid var(--border);border-radius:var(--radius-lg);background:var(--bg)">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">D${d.day}</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">${d.title}</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--text3);margin-bottom:6px">
+            ${d.lodge?`<span>🏕 ${d.lodge}</span>`:''}
+            ${d.meals?`<span>🍽 ${d.meals}</span>`:''}
+            ${d.park?`<span>🌿 ${d.park}</span>`:''}
+          </div>
+          ${(d.activities||[]).map(a=>`<div style="font-size:12px;color:var(--text2);padding:3px 0;border-bottom:0.5px solid var(--border);display:flex;gap:6px"><span style="color:var(--gold)">▸</span><span>${a}</span></div>`).join('')}
+          ${d.description?`<div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;font-style:italic">${d.description}</div>`:''}
+        </div>
+        <button class="btn danger" style="font-size:10px;padding:2px 6px;flex-shrink:0" onclick="removeDay('${it.id}',${i})">✕</button>
+      </div>`).join('')}
+    </div>
+
+    <div style="border:1.5px dashed var(--border2);border-radius:var(--radius-lg);padding:14px;background:var(--bg2)" id="add-day-form-${it.id}">
+      <div style="font-size:12px;font-weight:700;margin-bottom:10px;color:var(--text)">➕ Add Day ${days.length+1}</div>
       <div class="r2" style="margin-bottom:8px">
-        <div class="form-group" style="margin:0"><label>Day Title</label><input type="text" id="nd-title" placeholder="e.g. Mara Game Drive"/></div>
-        <div class="form-group" style="margin:0"><label>Lodge / Camp</label><input type="text" id="nd-lodge"/></div>
+        <div class="form-group" style="margin:0"><label>Day Title</label><input type="text" id="nd-title" placeholder="e.g. Maasai Mara Game Drive"/></div>
+        <div class="form-group" style="margin:0"><label>Park / Location</label>
+          <select id="nd-park">
+            <option value="">Select park...</option>
+            ${parks.map(p=>`<option value="${p.name}">${p.name}</option>`).join('')}
+            <option value="Nairobi">Nairobi</option>
+            <option value="En route">En route</option>
+            <option value="Airport">Airport</option>
+          </select>
+        </div>
       </div>
       <div class="r2" style="margin-bottom:8px">
-        <div class="form-group" style="margin:0"><label>Meals</label><input type="text" id="nd-meals" placeholder="Breakfast, Lunch, Dinner"/></div>
-        <div class="form-group" style="margin:0"><label>Activity</label><input type="text" id="nd-act" placeholder="e.g. Morning game drive"/></div>
+        <div class="form-group" style="margin:0"><label>Lodge / Camp</label><input type="text" id="nd-lodge" placeholder="e.g. Mara Serena Lodge"/></div>
+        <div class="form-group" style="margin:0"><label>Meals Included</label><input type="text" id="nd-meals" placeholder="e.g. Breakfast, Lunch, Dinner"/></div>
       </div>
-      <button class="btn primary" style="font-size:12px" onclick="addDayDetail('${it.id}')">Add Day</button>
+      <div class="form-group" style="margin-bottom:8px"><label>Activities (one per line or comma separated)</label>
+        <textarea id="nd-activities" rows="3" placeholder="e.g. Early morning game drive&#10;Sundowner at the Mara River&#10;Bush dinner under the stars"></textarea>
+      </div>
+      <div class="form-group" style="margin-bottom:10px"><label>Day Description / Narrative</label>
+        <textarea id="nd-desc" rows="2" placeholder="A narrative description of the day for the client document..."></textarea>
+      </div>
+      <button class="btn primary" onclick="addDayDetail('${it.id}')">Save Day</button>
     </div>`;
+  det.scrollIntoView({behavior:'smooth',block:'start'});
 };
-window.addDay=(id)=>viewItinerary(id);
+
+window.addDayUI=(id)=>viewItinerary(id);
+
 window.addDayDetail=async(id)=>{
-  const title=document.getElementById('nd-title')?.value?.trim(); if(!title){toast('Title required','error');return;}
+  const title=document.getElementById('nd-title')?.value?.trim();
+  if(!title){toast('Day title required','error');return;}
   const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
   const days=it.days_json?JSON.parse(it.days_json):[];
-  const lodge=document.getElementById('nd-lodge')?.value?.trim();
-  const meals=document.getElementById('nd-meals')?.value?.trim();
-  const act=document.getElementById('nd-act')?.value?.trim();
-  days.push({day:days.length+1,title,lodge,meals,activities:act?[act]:[]});
-  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id); toast('Day added');
+  const rawActs=document.getElementById('nd-activities')?.value||'';
+  const activities=rawActs.split(/[\n,]/).map(s=>s.trim()).filter(Boolean);
+  days.push({
+    day:days.length+1,
+    title,
+    park:document.getElementById('nd-park')?.value||'',
+    lodge:document.getElementById('nd-lodge')?.value?.trim()||'',
+    meals:document.getElementById('nd-meals')?.value?.trim()||'',
+    activities,
+    description:document.getElementById('nd-desc')?.value?.trim()||''
+  });
+  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id);
+  toast('Day '+days.length+' saved!');
 };
+
 window.removeDay=async(id,idx)=>{
   const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
   const days=it.days_json?JSON.parse(it.days_json):[];
   days.splice(idx,1); days.forEach((d,i)=>d.day=i+1);
-  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id); toast('Day removed');
+  await sb.from('itineraries').update({days_json:JSON.stringify(days),days:days.length}).eq('id',id);
+  toast('Day removed');
 };
+
 window.deleteIt=async(id)=>{if(!confirm('Delete itinerary?'))return;await sb.from('itineraries').delete().eq('id',id);toast('Deleted');};
 
-// ── DOWNLOAD ITINERARY ──
+window.openInvoiceFromItinerary=(id)=>{
+  const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
+  const linked=cache.bookings.find(b=>b.client_name===it.client_name&&b.tour_name===it.name);
+  if(linked){
+    _invBkId=linked.id;
+    const n=nights(linked.start_date,linked.end_date);
+    const pax=linked.passengers||1;
+    const infoEl=document.getElementById('inv-bk-info');
+    if(infoEl)infoEl.innerHTML=`<strong>${linked.client_name}</strong> — ${linked.tour_name||''} &nbsp;·&nbsp; ${fmtDate(linked.start_date)} → ${fmtDate(linked.end_date)} &nbsp;·&nbsp; ${n} nights &nbsp;·&nbsp; ${pax} pax`;
+    ['iv-vrate','iv-arate','iv-prate','iv-mrate','iv-act','iv-flights','iv-sgr','iv-erun','iv-oamt'].forEach(eid=>{const el=document.getElementById(eid);if(el)el.value='';});
+    const sv=(eid,v)=>{const el=document.getElementById(eid);if(el)el.value=v;};
+    sv('iv-vdays',n||'');sv('iv-anights',n||'');sv('iv-mdays',n||'');sv('iv-pdays',n||'');
+    sv('iv-vpax',pax);sv('iv-tpax',pax);sv('iv-markup',15);sv('iv-fx',129);
+    const sumEl=document.getElementById('inv-summary');if(sumEl)sumEl.style.display='none';
+    setCurType(it.client_type||'nonresident');
+    openModal('modal-invoice');
+  } else {
+    toast('No matching booking found. Create a booking for this client first, then generate the invoice from there.','error');
+  }
+};
+
 window.downloadItinerary=(id)=>{
   const it=cache.itineraries.find(x=>x.id===id); if(!it)return;
   const days=it.days_json?JSON.parse(it.days_json):[];
+  const parks=it.parks_json?JSON.parse(it.parks_json):[];
   const n=nights(it.start_date,it.end_date);
   const total=(it.price_per_person||0)*(it.pax||1);
   const isKES=it.client_type==='resident'||it.client_type==='citizen';
   const priceDisplay=isKES?'Ksh '+(Math.round(it.price_per_person||0)).toLocaleString():'$'+(it.price_per_person||0).toLocaleString();
   const totalDisplay=isKES?'Ksh '+(Math.round(total)).toLocaleString():'$'+total.toLocaleString();
   const ctLabel={nonresident:'Non-Resident / International',resident:'Resident',citizen:'Citizen'}[it.client_type]||'Non-Resident';
-  const cols=['#c8893a','#2d6a4f','#1a5276','#6c3483','#117a65','#784212','#1b4f72'];
+  const cols=['#c8893a','#2d6a4f','#1a5276','#6c3483','#117a65','#784212','#1b4f72','#922b21','#1a5276','#145a32'];
+
+  const parksHtml=parks.length>0?`
+    <div style="padding:28px 40px;border-bottom:1px solid #e8e6e0">
+      <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:16px">Destinations</h2>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        ${parks.map(p=>`<div style="width:160px;border-radius:10px;overflow:hidden;border:1px solid #e8e6e0;flex-shrink:0">
+          <div style="height:100px;background:url('${p.img}') center/cover no-repeat"></div>
+          <div style="padding:8px"><div style="font-size:12px;font-weight:700">${p.name}</div><div style="font-size:10px;color:#9c9a93">${p.country}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>`:'';
+
   const daysHtml=days.map((d,i)=>`
-    <div style="margin-bottom:28px;page-break-inside:avoid">
+    <div style="margin-bottom:30px;page-break-inside:avoid">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
         <div style="width:44px;height:44px;border-radius:50%;background:${cols[i%cols.length]};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">D${d.day}</div>
-        <div><div style="font-size:16px;font-weight:700">${d.title}</div>${d.lodge?`<div style="font-size:12px;color:#6b6a64">🏕 ${d.lodge}</div>`:''}</div>
+        <div>
+          <div style="font-size:17px;font-weight:700">${d.title}</div>
+          <div style="font-size:12px;color:#6b6a64;margin-top:2px">${[d.park,d.lodge].filter(Boolean).map((x,i)=>[' 🌿 ','🏕 '][i]+x).join(' &nbsp;')}</div>
+        </div>
       </div>
-      ${d.meals?`<div style="background:#fdf6ee;border-left:3px solid #c8893a;padding:6px 10px;border-radius:0 6px 6px 0;font-size:12px;color:#633806;margin-bottom:8px">🍽 <strong>Meals:</strong> ${d.meals}</div>`:''}
-      ${(d.activities||[]).length>0?`<ul style="padding-left:18px">${d.activities.map(a=>`<li style="font-size:13px;color:#2d2d2b;margin-bottom:4px">${a}</li>`).join('')}</ul>`:''}
+      ${d.meals?`<div style="background:#fdf6ee;border-left:3px solid #c8893a;padding:6px 12px;border-radius:0 6px 6px 0;font-size:12px;color:#633806;margin-bottom:10px">🍽 <strong>Meals:</strong> ${d.meals}</div>`:''}
+      ${(d.activities||[]).length>0?`<ul style="padding-left:18px;margin-bottom:8px">${d.activities.map(a=>`<li style="font-size:13px;color:#2d2d2b;margin-bottom:5px;line-height:1.5">${a}</li>`).join('')}</ul>`:''}
+      ${d.description?`<p style="font-size:13px;color:#4a4a48;line-height:1.7;margin-top:6px;font-style:italic">${d.description}</p>`:''}
     </div>`).join('');
-  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>${it.name}</title>
-  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:#fff;color:#1a1a18;line-height:1.6}@media print{.np{display:none!important}@page{margin:15mm}}</style></head><body>
-  <div style="background:linear-gradient(135deg,#1a3a2a 0%,#2d6a4f 55%,#c8893a 100%);color:#fff;padding:48px 40px;text-align:center">
-    <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.8;margin-bottom:8px">Safari Itinerary · ${ctLabel}</div>
-    <h1 style="font-size:30px;font-weight:700;margin-bottom:6px">${it.name}</h1>
-    <div style="font-size:15px;opacity:.9">${it.destination||''}</div>
-    <div style="margin-top:24px;display:inline-flex;gap:28px;background:rgba(255,255,255,.15);border-radius:10px;padding:16px 28px">
-      ${[['CLIENT',it.client_name||'—'],['TYPE',ctLabel],['START',fmtDate(it.start_date)],['END',fmtDate(it.end_date)],['NIGHTS',''+n],['PAX',''+( it.pax||1)]].map(([k,v])=>`<div style="text-align:center"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">${k}</div><div style="font-size:14px;font-weight:600;margin-top:3px">${v}</div></div>`).join('')}
+
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>${it.name} — Itinerary</title>
+  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:#fff;color:#1a1a18;line-height:1.6}@media print{.np{display:none!important}@page{margin:12mm}}</style></head><body>
+  <div style="background:linear-gradient(135deg,#1a3a2a 0%,#2d6a4f 55%,#c8893a 100%);color:#fff;padding:50px 40px;text-align:center">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.8;margin-bottom:10px">Safari Itinerary · ${ctLabel}</div>
+    <h1 style="font-size:32px;font-weight:700;margin-bottom:8px">${it.name}</h1>
+    ${parks.length>0?`<div style="font-size:14px;opacity:.9;margin-bottom:18px">${parks.map(p=>p.name).join(' → ')}</div>`:''}
+    <div style="display:inline-flex;gap:24px;background:rgba(255,255,255,.15);border-radius:12px;padding:16px 28px;flex-wrap:wrap;justify-content:center">
+      ${[['CLIENT',it.client_name||'—'],['TYPE',ctLabel],['START',fmtDate(it.start_date)],['END',fmtDate(it.end_date)],['NIGHTS',''+n],['PAX',''+(it.pax||1)]].map(([k,v])=>`<div style="text-align:center;min-width:70px"><div style="font-size:10px;opacity:.7;letter-spacing:.08em">${k}</div><div style="font-size:14px;font-weight:600;margin-top:3px">${v}</div></div>`).join('')}
     </div>
   </div>
+  ${parksHtml}
   ${it.intro?`<div style="background:#f9f7f4;padding:28px 40px;border-bottom:1px solid #e8e6e0"><h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:10px">Overview</h2><p style="font-size:14px;color:#4a4a48;line-height:1.7">${it.intro}</p></div>`:''}
+  ${days.length>0?`
   <div style="padding:28px 40px;border-bottom:1px solid #e8e6e0">
-    <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:14px">At a Glance</h2>
+    <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:16px">At a Glance</h2>
     <table style="width:100%;border-collapse:collapse;font-size:13px">
       <thead><tr style="background:#1a3a2a;color:#fff"><th style="padding:10px 14px;text-align:left">Day</th><th style="padding:10px 14px;text-align:left">Destination</th><th style="padding:10px 14px;text-align:left">Accommodation</th><th style="padding:10px 14px;text-align:left">Meals</th></tr></thead>
-      <tbody>${days.map((d,i)=>`<tr style="background:${i%2===0?'#fff':'#f9f7f4'}"><td style="padding:8px 14px;font-weight:600;color:#c8893a">Day ${d.day}</td><td style="padding:8px 14px">${d.title}</td><td style="padding:8px 14px">${d.lodge||'—'}</td><td style="padding:8px 14px">${d.meals||'—'}</td></tr>`).join('')}</tbody>
+      <tbody>${days.map((d,i)=>`<tr style="background:${i%2===0?'#fff':'#f9f7f4'}"><td style="padding:8px 14px;font-weight:600;color:#c8893a">Day ${d.day}</td><td style="padding:8px 14px">${d.park||d.title}</td><td style="padding:8px 14px">${d.lodge||'—'}</td><td style="padding:8px 14px">${d.meals||'—'}</td></tr>`).join('')}</tbody>
     </table>
   </div>
-  <div style="padding:28px 40px"><h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:20px">Detailed Day-by-Day</h2>${daysHtml}</div>
+  <div style="padding:28px 40px"><h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:22px">Day-by-Day Itinerary</h2>${daysHtml}</div>`:''}
   <div style="background:#1a3a2a;color:#fff;padding:28px 40px">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">Included</h3>
-        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>All game drives per itinerary</li><li>Full board accommodation</li><li>Park & conservation fees</li><li>Airport/airstrip transfers</li><li>English-speaking guide</li><li>Flying doctors cover</li></ul></div>
+      <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">What's Included</h3>
+        <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>All game drives per itinerary</li><li>Full board accommodation</li><li>Park & conservation fees</li><li>Airport/airstrip transfers</li><li>English-speaking guide</li><li>Flying doctors emergency cover</li></ul></div>
       <div><h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;color:#c8893a">Not Included</h3>
         <ul style="padding-left:16px;font-size:13px;line-height:1.8;opacity:.9"><li>International flights</li><li>Travel insurance</li><li>Visa fees</li><li>Personal expenses & tips</li><li>Optional activities</li></ul></div>
     </div>
   </div>
-  ${it.price_per_person?`<div style="background:#f9f7f4;padding:28px 40px;border-top:1px solid #e8e6e0">
+  ${it.price_per_person?`<div style="background:#f9f7f4;padding:28px 40px">
     <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c8893a;margin-bottom:14px">Pricing (${ctLabel})</h2>
     <table style="font-size:14px;border-collapse:collapse">
-      <tr><td style="padding:6px 24px 6px 0;color:#6b6a64">Price per person</td><td style="font-weight:700">${priceDisplay}</td></tr>
-      <tr><td style="padding:6px 24px 6px 0;color:#6b6a64">Guests</td><td style="font-weight:700">${it.pax||1}</td></tr>
-      <tr style="border-top:1px solid #e8e6e0"><td style="padding:10px 24px 0 0;font-weight:700;font-size:16px">Total</td><td style="font-weight:700;font-size:20px;color:#1a3a2a">${totalDisplay}</td></tr>
+      <tr><td style="padding:6px 28px 6px 0;color:#6b6a64">Price per person</td><td style="font-weight:700">${priceDisplay}</td></tr>
+      <tr><td style="padding:6px 28px 6px 0;color:#6b6a64">Guests</td><td style="font-weight:700">${it.pax||1}</td></tr>
+      <tr style="border-top:1px solid #e8e6e0"><td style="padding:10px 28px 0 0;font-weight:700;font-size:15px">Total</td><td style="font-weight:700;font-size:21px;color:#1a3a2a">${totalDisplay}</td></tr>
     </table>
+    <p style="font-size:12px;color:#9c9a93;margin-top:10px">Prices valid at time of quotation. Subject to availability.</p>
   </div>`:''}
-  <div style="background:#111;color:#aaa;padding:18px 40px;text-align:center;font-size:12px">
+  <div style="background:#111;color:#888;padding:18px 40px;text-align:center;font-size:12px">
     <div style="font-weight:600;color:#fff;margin-bottom:3px">Safari Workflow · Operations Platform</div>
     <div>Prepared exclusively for ${it.client_name||'the client'} · Generated ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})}</div>
   </div>
@@ -678,7 +831,6 @@ window.downloadItinerary=(id)=>{
   const w=window.open('','_blank'); w.document.write(html); w.document.close();
 };
 
-// ── ITINERARY FROM BOOKING ──
 window.genItineraryDoc=(id)=>{
   const b=cache.bookings.find(x=>x.id===id); if(!b)return;
   const n=nights(b.start_date,b.end_date);
@@ -1099,8 +1251,34 @@ window.saveBooking=async()=>{
 window.saveItinerary=async()=>{
   const name=document.getElementById('it-name')?.value?.trim();
   if(!name){toast('Title required','error');return;}
-  const{error}=await sb.from('itineraries').insert({name,client_name:document.getElementById('it-client')?.value?.trim(),start_date:document.getElementById('it-start')?.value,end_date:document.getElementById('it-end')?.value,pax:parseInt(document.getElementById('it-pax')?.value)||2,destination:document.getElementById('it-dest')?.value?.trim(),tour_type:document.getElementById('it-type')?.value,price_per_person:parseFloat(document.getElementById('it-price')?.value)||0,client_type:document.getElementById('it-client-type')?.value||'nonresident',intro:document.getElementById('it-intro')?.value?.trim(),status:'draft',days_json:'[]',days:0});
-  if(error)toast('Error: '+error.message,'error'); else{toast('Itinerary created!');closeModal('modal-itinerary');}
+  // collect parks
+  const parkNodes=document.getElementById('it-parks-list')?.children||[];
+  const parks=[];
+  for(const node of parkNodes){
+    const img=node.querySelector('img')?.src||'';
+    const divs=node.querySelectorAll('div div');
+    const pname=divs[0]?.textContent||'';
+    const country=divs[1]?.textContent||'';
+    if(pname) parks.push({name:pname,country,img});
+  }
+  const destStr=parks.map(p=>p.name).join(', ')||document.getElementById('it-dest')?.value?.trim()||'';
+  const{error}=await sb.from('itineraries').insert({
+    name,
+    client_name:document.getElementById('it-client')?.value?.trim(),
+    start_date:document.getElementById('it-start')?.value,
+    end_date:document.getElementById('it-end')?.value,
+    pax:parseInt(document.getElementById('it-pax')?.value)||2,
+    destination:destStr,
+    tour_type:document.getElementById('it-type')?.value,
+    price_per_person:parseFloat(document.getElementById('it-price')?.value)||0,
+    client_type:document.getElementById('it-client-type')?.value||'nonresident',
+    intro:document.getElementById('it-intro')?.value?.trim(),
+    lodge:document.getElementById('it-lodge')?.value?.trim(),
+    parks_json:JSON.stringify(parks),
+    status:'draft',days_json:'[]',days:0
+  });
+  if(error)toast('Error: '+error.message,'error');
+  else{toast('Itinerary created!');closeModal('modal-itinerary');document.getElementById('it-parks-list').innerHTML='';}
 };
 window.saveSupplier=async()=>{
   const name=document.getElementById('sup-name')?.value?.trim();
